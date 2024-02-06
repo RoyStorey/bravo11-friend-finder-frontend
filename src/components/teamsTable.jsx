@@ -6,7 +6,7 @@ import axios from "axios";
 const columns = [
   {
     Header: "List of Bravo 11 TEAMS",
-    accessor: "teamName",
+    accessor: "team_name",
   },
 ];
 
@@ -75,36 +75,31 @@ export default function UseCasesTable({ data }) {
                 <tr>
                   <td colSpan={columns.length}>
                     <p>
-                      <strong>Team Name:</strong> {data[rowIndex].teamName}
+                      <strong>Team Name:</strong> {data[rowIndex].team_name}
                     </p>
                     <p>
-                      <strong>Use Case:</strong> {data[rowIndex].useCase}
+                      <strong>Use Case:</strong> {data[rowIndex].use_case}
                     </p>
                     <p>
-                      <strong>Number of members:</strong>{" "}
-                      {data[rowIndex].members.length}
+                      <strong>Number of members:</strong> {data[rowIndex].members.length}
                     </p>
                     <p>
-                      <strong>Team Captain Discord Name:</strong>{" "}
-                      {data[rowIndex].captainDiscordName}
+                      <strong>Team Captain Discord Name:</strong> {data[rowIndex].captain_discord_name}
                     </p>
                     <p>
-                      <strong>Git Repo:</strong> {data[rowIndex].gitRepoUrl}
+                      <strong>Git Repo:</strong> {data[rowIndex].git_repo_url}
                     </p>
                     <p>
                       <strong>Location:</strong> {data[rowIndex].location}
                     </p>
                     <p>
-                      <strong>Preferred Work Time:</strong>{" "}
-                      {data[rowIndex].preferredTimeToWork}
+                      <strong>Preferred Work Time:</strong> {data[rowIndex].preferred_time_to_work}
                     </p>
                     <p>
-                      <strong>Classification Level:</strong>{" "}
-                      {data[rowIndex].classificationLevel}
+                      <strong>Classification Level:</strong> {data[rowIndex].classification_level}
                     </p>
                     <p>
-                      <strong>Preferred Skillsets:</strong>{" "}
-                      {data[rowIndex].preferredSkillsets.toString()}
+                      <strong>Preferred Skillsets:</strong> {data[rowIndex].preferred_skillsets.toString()}
                     </p>
                   </td>
                 </tr>

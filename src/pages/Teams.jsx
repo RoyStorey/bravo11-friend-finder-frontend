@@ -33,20 +33,21 @@ const data = [
 ];
 
 export default function Teams() {
-  // const [teamsData, setTeamsData] = useState([]);
+  const [teamsData, setTeamsData] = useState([]);
 
-  // async function getTeams() {
-  //   return axios
-  //     .get(`http://localhost:3000/getTeams`)
-  //     .then((response) => response.data)
-  //     .catch((error) => console.error(error));
-  // }
+  async function getTeams() {
+    return axios
+      .get(`http://localhost:3000/getTeams`)
+      .then((response) => response.data)
+      .catch((error) => console.error(error));
+  }
 
-  // useEffect(() => {
-  //   getTeams().then((data) => {
-  //     setTeamsData(data);
-  //   });
-  // }, []);
+  useEffect(() => {
+    getTeams().then((data) => {
+      setTeamsData(data);
+      console.log(data);
+    });
+  }, []);
 
   return (
     <div className="home">
