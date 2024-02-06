@@ -45,6 +45,7 @@ export default function Teams() {
   useEffect(() => {
     getTeams().then((data) => {
       setTeamsData(data);
+      console.log(data)
     });
   }, []);
 
