@@ -1,0 +1,11 @@
+.footer-container {
+  /* height: 4vh; */
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background: rgb(39, 71, 107);
+}
