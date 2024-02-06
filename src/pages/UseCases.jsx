@@ -1,7 +1,9 @@
+import React, { useState, useEffect } from "react";
 import Header from "../components/header.jsx";
 import Footer from "../components/footer.jsx";
 import UseCasesTable from "../components/useCasesTable.jsx";
 import "../styles/home.css";
+import axios from "axios";
 
 const data = [
   {
@@ -19,11 +21,22 @@ const data = [
 ];
 
 export default function UseCases() {
+  const [useCasesData, setUseCasesData] = useState([]);
+
+  async function getUseCases() {
+    return axios
+      .get(`http://localhost:3000/getUseCases`)
+      .then((response) => {
+        setUseCasesData(response.data.result);
+      })
+      .catch((error) => console.error(error));
+  }
+
   return (
     <div className="home">
       <Header />
       <div className="body">
-        <UseCasesTable data={data} />
+        <UseCasesTable data={useCasesData} />
       </div>
       <Footer />
     </div>

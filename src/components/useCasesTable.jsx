@@ -32,7 +32,9 @@ export default function UseCasesTable({ data }) {
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()} className="table-header">
             {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+              <th {...column.getHeaderProps()}>
+                <h2>{column.render("Header")}</h2>
+              </th>
             ))}
           </tr>
         ))}

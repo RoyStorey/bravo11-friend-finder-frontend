@@ -6,4 +6,8 @@ body {
 }
 a {
   color: rgba(255, 255, 255, 0.908);
+  text-decoration: none;
+}
+a:hover {
+  color: #88cb6d;
 }

@@ -2,6 +2,8 @@ import Header from "../components/header.jsx";
 import Footer from "../components/footer.jsx";
 import TeamsTable from "../components/teamsTable.jsx";
 import "../styles/home.css";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const data = [
   {
@@ -31,11 +33,26 @@ const data = [
 ];
 
 export default function Teams() {
+  const [teamsData, setTeamsData] = useState([]);
+
+  async function getTeams() {
+    return axios
+      .get(`http://localhost:3000/getTeams`)
+      .then((response) => response.data)
+      .catch((error) => console.error(error));
+  }
+
+  useEffect(() => {
+    getTeams().then((data) => {
+      setTeamsData(data);
+    });
+  }, []);
+
   return (
     <div className="home">
       <Header />
       <div className="body">
-        <TeamsTable data={data} />
+        <TeamsTable data={teamsData} />
       </div>
       <Footer />
     </div>
