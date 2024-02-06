@@ -33,26 +33,26 @@ const data = [
 ];
 
 export default function Teams() {
-  const [teamsData, setTeamsData] = useState([]);
+  // const [teamsData, setTeamsData] = useState([]);
 
-  async function getTeams() {
-    return axios
-      .get(`http://localhost:3000/getTeams`)
-      .then((response) => response.data)
-      .catch((error) => console.error(error));
-  }
+  // async function getTeams() {
+  //   return axios
+  //     .get(`http://localhost:3000/getTeams`)
+  //     .then((response) => response.data)
+  //     .catch((error) => console.error(error));
+  // }
 
-  useEffect(() => {
-    getTeams().then((data) => {
-      setTeamsData(data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   getTeams().then((data) => {
+  //     setTeamsData(data);
+  //   });
+  // }, []);
 
   return (
     <div className="home">
       <Header />
       <div className="body">
-        <TeamsTable data={teamsData} />
+        <TeamsTable data={data} />
       </div>
       <Footer />
     </div>

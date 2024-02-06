@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTable } from "react-table";
 import "../styles/table.css";
+import axios from "axios";
 
 const columns = [
   {
@@ -25,6 +26,17 @@ export default function UseCasesTable({ data }) {
       setExpandedRows([...expandedRows, rowIndex]);
     }
   };
+  function handleTeamDelete(teamId) {
+    if (window.confirm("Are you sure you would like to delete this team?")) {
+      try {
+        axios.post("http://localhost:3000/deleteTeam", {
+          id: teamId,
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
 
   return (
     <table {...getTableProps()} className="table-container">
@@ -51,6 +63,13 @@ export default function UseCasesTable({ data }) {
                     <td {...cell.getCellProps()}>▼ {cell.render("Cell")}</td>
                   );
                 })}
+                <button
+                  onClick={() => {
+                    handleTeamDelete(data[rowIndex].id);
+                  }}
+                >
+                  delete team
+                </button>
               </tr>
               {expandedRows.includes(rowIndex) && (
                 <tr>
