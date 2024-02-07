@@ -14,11 +14,26 @@ async function postNewTeam(teamObject) {
     .catch((error) => console.error(error));
 }
 
+function makeid(length) {
+  let result = "";
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  const charactersLength = characters.length;
+  let counter = 0;
+  while (counter < length) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    counter += 1;
+  }
+  return result;
+}
+
 export default function AddTeam() {
+  let OTP = makeid(6);
   const [formData, setFormData] = useState({
     teamName: "",
     useCase: "",
     captainDiscordName: "",
+    captainOTP: OTP,
     gitRepoUrl: "",
     location: "",
     preferredTimeToWork: "",
@@ -36,6 +51,9 @@ export default function AddTeam() {
       console.log(formData, "form data");
       // const response = await postNewTeam(formData);
       await postNewTeam(formData);
+      window.alert(
+        `Your Captain PIN is "${OTP}", WRITE THIS DOWN! If you want to make any changes in the future, it will ask for your PIN.`
+      );
       // console.log(response); // Log the response or handle it as needed
     } catch (error) {
       console.error(error);

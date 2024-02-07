@@ -18,11 +18,11 @@ export default function AddUseCase() {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    classificationLevel: "",
+    classificationLevel: "CUI",
     preferredSkillsets: "",
     desiredDeliverable: "",
     company: "",
-    location: "CUI",
+    location: "",
     pocName: "",
     pocDiscordName: "",
     hasData: false,

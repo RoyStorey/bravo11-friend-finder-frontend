@@ -59,6 +59,7 @@ export default function UseCasesTable({ data }) {
               <tr
                 {...row.getRowProps()}
                 onClick={() => toggleRowExpansion(rowIndex)}
+                className="teams-table-row"
               >
                 {row.cells.map((cell) => {
                   return (
@@ -72,6 +73,9 @@ export default function UseCasesTable({ data }) {
                 >
                   delete use case
                 </button>
+                <a href={`/single-use-case/${data[rowIndex].id}`}>
+                  see use case
+                </a>
               </tr>
               {expandedRows.includes(rowIndex) && (
                 <tr>
@@ -92,12 +96,10 @@ export default function UseCasesTable({ data }) {
                       {data[rowIndex].desiredDeliverable}
                     </p>
                     <p>
-                      <strong>Organization:</strong>{" "}
-                      {data[rowIndex].company}
+                      <strong>Organization:</strong> {data[rowIndex].company}
                     </p>
                     <p>
-                      <strong>Location:</strong>{" "}
-                      {data[rowIndex].location}
+                      <strong>Location:</strong> {data[rowIndex].location}
                     </p>
                     <p>
                       <strong>POC Name:</strong> {data[rowIndex].pocName}

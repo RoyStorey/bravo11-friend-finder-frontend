@@ -1,0 +1,22 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.use-case {
+  color: #ff5349;
+  text-decoration: underline;
+}
+.use-case-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.use-case-button {
+  background: transparent;
+  color: white;
+  border: none;
+}
+.use-case-button:hover {
+  color: #88cb6d;
+}
