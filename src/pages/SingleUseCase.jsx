@@ -6,40 +6,41 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Pitch from "../components/pitch-container.jsx";
 
-// const data = [
-//   {
-//     id: 1,
-//     title: "Avionics Data Cleaning for INDOPACOM",
-//     description:
-//       "The Avionics Data Cleaning use-case for INDOPACOM involves the process of collecting, processing, and refining avionics data from various aircraft and sources within the Indo-Pacific Command (INDOPACOM) region. This critical task ensures that the avionics data is accurate, reliable, and ready for analysis and decision-making.",
-//     classificationLevel: "Secret",
-//     desiredSkillsets: ["ui/ux developer", "data scientist"],
-//     desiredDeliverable: "Application that cleans data",
-//     company: "INDOPACOM",
-//     location: "E2",
-//     pocName: "john smite",
-//     pocDiscordName: "smiteyou",
-//     hasData: true,
-//   },
-// ];
-
 export default function SingleUseCase() {
-  const [useCaseData, setUseCaseData] = useState([]);
+  const [useCaseData, setUseCaseData] = useState({
+    title: "",
+    description: "",
+    pocName: "",
+    pocDiscordName: "",
+    company: "",
+    desiredDeliverable: "",
+    hasData: 0,
+    desiredSkillsets: [""],
+    classificationLevel: "CUI",
+    location: "",
+    image: "",
+  });
   let { useCaseId } = useParams();
 
   async function getUseCase(useCaseId) {
     return axios
-      .get(`http://localhost:3000/getUseCase`, { params: { useCaseId: useCaseId } })
+      .get(`http://localhost:3000/getUseCase/${useCaseId}`)
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }
 
   useEffect(() => {
-    getUseCase().then((data) => {
-      setUseCaseData(data);
-      console.log(data);
-    });
+    getUseCase(useCaseId)
+      .then((data) => {
+        setUseCaseData(data[0]); // Update state with the received data
+        console.log(data, "test");
+      })
+      .catch((error) => {
+        console.error("Error fetching team data:", error);
+        // Handle error if necessary
+      });
   }, []);
+  //Correctly querying
 
   function handleAddAsTeamsUseCase(useCaseName) {
     let yesNoCheck = window.confirm(
@@ -83,7 +84,7 @@ export default function SingleUseCase() {
             </p>
             <p>
               <b>Captain's Discord Name: </b>
-              {useCaseData.desiredSkillsets?.toString() ?? 'none'}
+              {useCaseData.desiredSkillsets?.toString() ?? "none"}
             </p>
             <p>
               <b>Git Repo URL: </b>

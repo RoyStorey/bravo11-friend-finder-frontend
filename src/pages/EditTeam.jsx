@@ -19,17 +19,20 @@ export default function EditTeam(teamId) {
   });
   async function getTeam(teamId) {
     return axios
-      .get(`http://localhost:3000/getTeam`, {
-        params: { teamId: teamId },
-      })
+      .get(`http://localhost:3000/getTeam${teamId}`)
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }
   useEffect(() => {
-    getTeam().then((data) => {
-      setFormData(data);
-      console.log(data);
-    });
+    getTeam(teamId)
+      .then((data) => {
+        setFormData(data[0]); // Update state with the received data
+        console.log(data, "test");
+      })
+      .catch((error) => {
+        console.error("Error fetching team data:", error);
+        // Handle error if necessary
+      });
   }, []);
   const handleChange = (event) => {
     const { name, value } = event.target;
