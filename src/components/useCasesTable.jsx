@@ -6,7 +6,7 @@ import axios from "axios";
 const columns = [
   {
     Header: "List of Bravo 11 Use Cases",
-    accessor: "useCase",
+    accessor: "title",
   },
 ];
 
@@ -85,7 +85,7 @@ export default function UseCasesTable({ data }) {
                     </p>
                     <p>
                       <strong>Preferred Skillsets:</strong>{" "}
-                      {data[rowIndex].beneficialSkillsets.toString()}
+                      {data[rowIndex].desiredSkillsets.toString()}
                     </p>
                     <p>
                       <strong>Desired Deliverable:</strong>{" "}
@@ -93,22 +93,22 @@ export default function UseCasesTable({ data }) {
                     </p>
                     <p>
                       <strong>Organization:</strong>{" "}
-                      {data[rowIndex].organization}
+                      {data[rowIndex].company}
                     </p>
                     <p>
                       <strong>Location:</strong>{" "}
-                      {data[rowIndex].locationDuringEvent}
+                      {data[rowIndex].location}
                     </p>
                     <p>
-                      <strong>POC Name:</strong> {data[rowIndex].POC.name}
+                      <strong>POC Name:</strong> {data[rowIndex].pocName}
                     </p>
                     <p>
                       <strong>POC Discord Name:</strong>{" "}
-                      {data[rowIndex].POC.discordName}
+                      {data[rowIndex].pocDiscordName}
                     </p>
                     <p>
                       <strong>Data Supplied:</strong>{" "}
-                      {data[rowIndex].dataSupplied.toString()}
+                      {data[rowIndex].hasData ? "Yes" : "No"}
                     </p>
                   </td>
                 </tr>
