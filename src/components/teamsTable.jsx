@@ -59,12 +59,17 @@ export default function UseCasesTable({ data }) {
               <tr
                 {...row.getRowProps()}
                 onClick={() => toggleRowExpansion(rowIndex)}
+                className="teams-table-row"
               >
                 {row.cells.map((cell) => {
                   return (
                     <td {...cell.getCellProps()}>▼ {cell.render("Cell")}</td>
                   );
                 })}
+                <p>
+                  <b>Number of Members: </b>
+                  {data[rowIndex].members.length}
+                </p>
                 <button
                   onClick={() => {
                     handleTeamDelete(data[rowIndex].id);

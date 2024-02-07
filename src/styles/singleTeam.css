@@ -5,4 +5,18 @@
 }
 .team-name {
   color: #ff5349;
+  text-decoration: underline;
+}
+.single-team-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0px;
+}
+.single-team-container > p {
+  margin: 0px;
+}
+.single-team-container > h1,
+h5 {
+  margin: 0px;
 }

@@ -31,10 +31,8 @@ td {
   /* align-items: center; */
   flex-direction: column;
 }
-h1,
-h2,
-h3,
-h4,
-h5 {
-  margin: 0px;
+.teams-table-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

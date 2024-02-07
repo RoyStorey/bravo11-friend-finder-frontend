@@ -56,9 +56,37 @@ export default function SingleTeam() {
     <div className="home">
       <Header />
       <div className="body">
-        <h1 className="team-name">{data[0].teamName}</h1>
-        <h5>Team ID: {data[0].id}</h5>
-        <p>{JSON.stringify(data[0])}</p>
+        <div className="single-team-container">
+          <h1 className="team-name">{data[0].teamName}</h1>
+          <h5>Team ID: {data[0].id}</h5>
+          <p>
+            <b>Use Case:</b> {data[0].useCase}
+          </p>
+          <p>
+            <b>Number of Members: {data[0].members.length}</b>
+          </p>
+          <p>
+            <b>Captain's Discord Name: </b>
+            {data[0].captainDiscordName}
+          </p>
+          <p>
+            <b>Git Repo URL: </b>
+            {data[0].gitRepoUrl}
+          </p>
+          <p>
+            <b>Location: </b>
+            {data[0].location}
+          </p>
+          <p>
+            <b>Preferred Time to Work:</b> {data[0].preferredTimeToWork}
+          </p>
+          <p>
+            <b>Preferred Skillsets:</b> {data[0].preferredSkillsets.toString()}
+          </p>
+          <p>
+            <b>Level of Classification:</b> {data[0].classificationLevel}
+          </p>
+        </div>
       </div>
       <Footer />
     </div>
