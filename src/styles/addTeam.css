@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.form-container {
+  width: 50%;
+}
+input {
+  margin-bottom: 1rem;
+}
+.form-header {
+  color: #ff5349;
+}

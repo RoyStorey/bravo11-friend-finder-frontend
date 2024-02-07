@@ -15,7 +15,7 @@ export default function Header() {
           <a href="/use-cases">Use-Cases</a>
         </div>
         <div className="button-group">
-          <a>
+          <a href="/add-team">
             <FontAwesomeIcon icon={faPlus} />
             Add Team
           </a>

@@ -35,29 +35,29 @@ import axios from "axios";
 // ];
 
 export default function SingleTeam() {
-  const [teamData, setTeamData] = useState([]);
-  let { teamId } = useParams();
+  // const [teamData, setTeamData] = useState([]);
+  // let { teamId } = useParams();
 
-  async function getTeam(teamId) {
-    return axios
-      .get(`http://localhost:3000/getTeam`, { params: { id: teamId } })
-      .then((response) => response.data)
-      .catch((error) => console.error(error));
-  }
+  // async function getTeam(teamId) {
+  //   return axios
+  //     .get(`http://localhost:3000/getTeam`, { params: { id: teamId } })
+  //     .then((response) => response.data)
+  //     .catch((error) => console.error(error));
+  // }
 
-  useEffect(() => {
-    getTeam().then((data) => {
-      setTeamData(data);
-      console.log(data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   getTeam().then((data) => {
+  //     setTeamData(data);
+  //     console.log(data);
+  //   });
+  // }, []);
 
   return (
     <div className="home">
       <Header />
       <div className="body">
         <div className="single-team-container">
-          <h1 className="team-name">{data[0].teamName}</h1>
+          {/* <h1 className="team-name">{data[0].teamName}</h1>
           <h5>Team ID: {data[0].id}</h5>
           <p>
             <b>Use Case:</b> {data[0].useCase}
@@ -85,7 +85,7 @@ export default function SingleTeam() {
           </p>
           <p>
             <b>Level of Classification:</b> {data[0].classificationLevel}
-          </p>
+          </p> */}
         </div>
       </div>
       <Footer />

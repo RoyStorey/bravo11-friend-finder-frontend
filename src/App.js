@@ -5,6 +5,7 @@ import Teams from "./pages/Teams.jsx";
 import SingleTeam from "./pages/SingleTeam.jsx";
 import NoPage from "./pages/NoPage.jsx";
 import "./styles/app.css";
+import AddTeam from "./pages/AddTeam.jsx";
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
       <Routes>
         <Route index element={<Teams />} />
         <Route path="/use-cases" element={<UseCases />}></Route>
+        <Route path="/add-team" element={<AddTeam />}></Route>
+
         <Route
           path="/single-team/:teamId"
           element={<SingleTeam teamId=":teamId" />}
