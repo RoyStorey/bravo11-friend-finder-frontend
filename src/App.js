@@ -8,6 +8,7 @@ import "./styles/app.css";
 import AddTeam from "./pages/AddTeam.jsx";
 import AddUseCase from "./pages/AddUseCase.jsx";
 import SingleUseCase from "./pages/SingleUseCase.jsx";
+import EditTeam from "./pages/EditTeam.jsx";
 
 function App() {
   return (
@@ -20,6 +21,10 @@ function App() {
         <Route
           path="/single-team/:teamId"
           element={<SingleTeam teamId=":teamId" />}
+        />
+        <Route
+          path="/edit-team/:teamId"
+          element={<EditTeam teamId=":teamId" />}
         />
         <Route
           path="/single-use-case/:useCaseId"

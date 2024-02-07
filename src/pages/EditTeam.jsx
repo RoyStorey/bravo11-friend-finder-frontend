@@ -1,39 +1,15 @@
 import Header from "../components/header.jsx";
 import Footer from "../components/footer.jsx";
 import "../styles/addTeam.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Pitch from "../components/pitch-container.jsx";
 
-async function postNewTeam(teamObject) {
-  return axios
-    .post(`http://localhost:3000/addTeam`, {
-      params: { team_object: teamObject },
-    })
-    .then((response) => response.data)
-    .catch((error) => console.error(error));
-}
-
-function makeid(length) {
-  let result = "";
-  const characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  const charactersLength = characters.length;
-  let counter = 0;
-  while (counter < length) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    counter += 1;
-  }
-  return result;
-}
-
-export default function AddTeam() {
-  let OTP = makeid(6);
+export default function EditTeam(teamId) {
   const [formData, setFormData] = useState({
     teamName: "",
     useCase: "",
     captainDiscordName: "",
-    captainOTP: OTP,
     gitRepoUrl: "",
     location: "",
     preferredTimeToWork: "",
@@ -41,61 +17,39 @@ export default function AddTeam() {
     preferredSkillsets: "",
     image: "",
   });
-
+  async function getTeam(teamId) {
+    return axios
+      .get(`http://localhost:3000/getTeam`, {
+        params: { teamId: teamId },
+      })
+      .then((response) => response.data)
+      .catch((error) => console.error(error));
+  }
+  useEffect(() => {
+    getTeam().then((data) => {
+      setFormData(data);
+      console.log(data);
+    });
+  }, []);
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-
+  async function updateTeam(teamId, formData) {
+    return axios
+      .post(`http://localhost:3000/updateTeam`, {
+        params: { teamId: teamId, formData: formData },
+      })
+      .then((response) => response.data)
+      .catch((error) => console.error(error));
+  }
   const handleSubmit = async () => {
     try {
       console.log(formData, "form data");
-      // const response = await postNewTeam(formData);
-      await postNewTeam(formData);
-      window.alert(
-        `Your Captain PIN is "${OTP}", WRITE THIS DOWN! If you want to make any changes in the future, it will ask for your PIN.`
-      );
-      // console.log(response); // Log the response or handle it as needed
+      await updateTeam(teamId, formData);
     } catch (error) {
       console.error(error);
     }
-  };
-  const UploadImage = () => {
-    const [selectedFile, setSelectedFile] = useState(null);
-
-    const handleFileChange = (event) => {
-      const file = event.target.files[0];
-      setSelectedFile(file);
-    };
-
-    const handleUpload = async () => {
-      if (selectedFile) {
-        try {
-          const picFormData = new FormData();
-          picFormData.append("image", selectedFile);
-
-          setFormData({ ...formData, image: picFormData });
-
-          // Handle the response as needed
-          console.log("Upload successful:");
-        } catch (error) {
-          console.error("Error uploading image:", error);
-        }
-      } else {
-        console.warn("No file selected.");
-      }
-    };
-
-    return (
-      <div>
-        <input
-          type="file"
-          accept=".png,.jpg,.jpeg"
-          onChange={handleFileChange}
-        />
-        <button onClick={handleUpload}>Upload</button>
-      </div>
-    );
   };
 
   return (
@@ -104,7 +58,7 @@ export default function AddTeam() {
       <div className="home">
         <Header />
         <div className="body">
-          <h1 className="form-header">Add Team</h1>
+          <h1 className="form-header">Edit Team {formData.teamName}</h1>
           <div className="form-container">
             <div className="left-side-of-form">
               <div className="form">
@@ -174,12 +128,10 @@ export default function AddTeam() {
                   onChange={handleChange}
                 />
 
-                <button onClick={handleSubmit}>Create Team</button>
+                <button onClick={() => handleSubmit()}>Push Edits</button>
               </div>
             </div>
-            <div className="right-side-of-form">
-              <UploadImage />
-            </div>
+            <div className="right-side-of-form"></div>
           </div>
         </div>
         <Footer />

@@ -2,7 +2,7 @@
   color: #171a1f;
 }
 .pitch-container {
-  position: absolute;
+  position: fixed;
   left: 0px;
   display: flex;
   flex: 1;

@@ -9,9 +9,9 @@ export default function Pitch() {
         <p>
           On Monday, we all sat through 2 hours of pitches, around 100 pitches.
           Afterwards, when we broke out into the CUI and Secret areas, we
-          realized that there was a huge issue. There was no centralized space
-          where we could see the use-cases that were pitched, and see the teams
-          that are already formed.
+          realized that there was a huge issue. There was no centralized web-app
+          where we could see the teams that were already formed and working on a
+          project.
         </p>
         <p>
           We were sitting in one of the cubicles, not wanting to talk to anyone,
