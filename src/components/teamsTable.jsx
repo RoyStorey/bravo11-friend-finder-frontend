@@ -68,7 +68,7 @@ export default function UseCasesTable({ data }) {
                 })}
                 <p>
                   <b>Number of Members: </b>
-                  {data[rowIndex].members.length}
+                  {data[rowIndex].members?.length ?? 0}
                 </p>
                 <button
                   onClick={() => {
@@ -83,36 +83,36 @@ export default function UseCasesTable({ data }) {
                 <tr>
                   <td colSpan={columns.length}>
                     <p>
-                      <strong>Team Name:</strong> {data[rowIndex].team_name}
+                      <strong>Team Name:</strong> {data[rowIndex].teamName}
                     </p>
                     <p>
-                      <strong>Use Case:</strong> {data[rowIndex].use_case}
+                      <strong>Use Case:</strong> {data[rowIndex].useCase}
                     </p>
                     <p>
                       <strong>Number of members:</strong>{" "}
-                      {data[rowIndex].members.length}
+                      {data[rowIndex].members?.length ?? 0}
                     </p>
                     <p>
                       <strong>Team Captain Discord Name:</strong>{" "}
-                      {data[rowIndex].captain_discord_name}
+                      {data[rowIndex].captainDiscordName}
                     </p>
                     <p>
-                      <strong>Git Repo:</strong> {data[rowIndex].git_repo_url}
+                      <strong>Git Repo:</strong> {data[rowIndex].gitRepoUrl}
                     </p>
                     <p>
                       <strong>Location:</strong> {data[rowIndex].location}
                     </p>
                     <p>
                       <strong>Preferred Work Time:</strong>{" "}
-                      {data[rowIndex].preferred_time_to_work}
+                      {data[rowIndex].preferredTimeToWork}
                     </p>
                     <p>
                       <strong>Classification Level:</strong>{" "}
-                      {data[rowIndex].classification_level}
+                      {data[rowIndex].classificationLevel}
                     </p>
                     <p>
                       <strong>Preferred Skillsets:</strong>{" "}
-                      {data[rowIndex].preferred_skillsets.toString()}
+                      {data[rowIndex].preferredSkillsets.toString()}
                     </p>
                   </td>
                 </tr>

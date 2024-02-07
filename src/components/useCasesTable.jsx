@@ -89,7 +89,7 @@ export default function UseCasesTable({ data }) {
                     </p>
                     <p>
                       <strong>Preferred Skillsets:</strong>{" "}
-                      {data[rowIndex].desiredSkillsets.toString()}
+                      {data[rowIndex].desiredSkillsets?.toString() ?? 'None'}
                     </p>
                     <p>
                       <strong>Desired Deliverable:</strong>{" "}

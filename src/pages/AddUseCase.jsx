@@ -19,7 +19,7 @@ export default function AddUseCase() {
     title: "",
     description: "",
     classificationLevel: "CUI",
-    preferredSkillsets: "",
+    desiredSkillsets: "",
     desiredDeliverable: "",
     company: "",
     location: "",
@@ -120,8 +120,8 @@ export default function AddUseCase() {
                 <label>Preferred Skillsets (comma delimited)</label>
                 <input
                   type="text"
-                  name="preferredSkillsets"
-                  value={formData.preferredSkillsets}
+                  name="desiredSkillsets"
+                  value={formData.desiredSkillsets}
                   onChange={handleChange}
                 />
 
@@ -169,8 +169,8 @@ export default function AddUseCase() {
                   value={formData.hasData}
                   onChange={handleChange}
                 >
-                  <option value="true">Yes</option>
-                  <option value="false">No</option>
+                  <option value={1}>Yes</option>
+                  <option value={0}>No</option>
                 </select>
 
                 <button onClick={handleSubmit}>Create Use Case</button>
