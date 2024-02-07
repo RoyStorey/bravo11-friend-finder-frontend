@@ -6,7 +6,7 @@ import axios from "axios";
 const columns = [
   {
     Header: "List of Bravo 11 Teams",
-    accessor: "team_name",
+    accessor: "teamName",
   },
 ];
 

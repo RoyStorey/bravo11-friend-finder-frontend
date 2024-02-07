@@ -34,3 +34,6 @@ td {
   justify-content: space-between;
   padding-inline: 2rem;
 }
+.teams-table-row td {
+  width: 40%;
+}
