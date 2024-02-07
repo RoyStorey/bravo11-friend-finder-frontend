@@ -4,29 +4,23 @@ import "../styles/addTeam.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Pitch from "../components/pitch-container.jsx";
+import { useParams } from "react-router-dom";
 
-export default function EditTeam(teamId) {
-  const [formData, setFormData] = useState({
-    teamName: "",
-    useCase: "",
-    captainDiscordName: "",
-    gitRepoUrl: "",
-    location: "",
-    preferredTimeToWork: "",
-    classificationLevel: "CUI",
-    preferredSkillsets: "",
-    image: "",
-  });
+export default function EditTeam() {
+  let { teamId } = useParams();
+
+  const [formData, setFormData] = useState({});
+  const [oldFormData, setOldFormData] = useState({});
   async function getTeam(teamId) {
     return axios
-      .get(`http://localhost:3000/getTeam${teamId}`)
+      .get(`http://localhost:3000/getTeam/${teamId}`)
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }
   useEffect(() => {
     getTeam(teamId)
       .then((data) => {
-        setFormData(data[0]); // Update state with the received data
+        setOldFormData(data[0]); // Update state with the received data
         console.log(data, "test");
       })
       .catch((error) => {
@@ -40,9 +34,7 @@ export default function EditTeam(teamId) {
   };
   async function updateTeam(teamId, formData) {
     return axios
-      .post(`http://localhost:3000/updateTeam`, {
-        params: { teamId: teamId, formData: formData },
-      })
+      .post(`http://localhost:3000/updateTeam`, { ...formData, id: teamId })
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }
@@ -71,7 +63,7 @@ export default function EditTeam(teamId) {
                   name="teamName"
                   value={formData.teamName}
                   onChange={handleChange}
-                  placeholder={formData.teamName}
+                  placeholder={oldFormData.teamName}
                 />
 
                 <label>Use Case</label>
@@ -80,6 +72,7 @@ export default function EditTeam(teamId) {
                   name="useCase"
                   value={formData.useCase}
                   onChange={handleChange}
+                  placeholder={oldFormData.useCase}
                 />
 
                 <label>Captain's Discord Name</label>
@@ -88,6 +81,7 @@ export default function EditTeam(teamId) {
                   name="captainDiscordName"
                   value={formData.captainDiscordName}
                   onChange={handleChange}
+                  placeholder={oldFormData.captainDiscordName}
                 />
 
                 <label>Git Repo URL</label>
@@ -96,6 +90,7 @@ export default function EditTeam(teamId) {
                   name="gitRepoUrl"
                   value={formData.gitRepoUrl}
                   onChange={handleChange}
+                  placeholder={oldFormData.gitRepoUrl}
                 />
 
                 <label>Working Location</label>
@@ -103,6 +98,7 @@ export default function EditTeam(teamId) {
                   type="text"
                   name="location"
                   value={formData.location}
+                  placeholder={oldFormData.location}
                   onChange={handleChange}
                 />
 
@@ -111,6 +107,7 @@ export default function EditTeam(teamId) {
                   type="text"
                   name="preferredTimeToWork"
                   value={formData.preferredTimeToWork}
+                  placeholder={oldFormData.preferredTimeToWork}
                   onChange={handleChange}
                 />
 
@@ -118,6 +115,7 @@ export default function EditTeam(teamId) {
                 <select
                   name="classificationLevel"
                   value={formData.classificationLevel}
+                  placeholder={oldFormData.classificationLevel}
                   onChange={handleChange}
                 >
                   <option value="CUI">CUI</option>
@@ -129,9 +127,9 @@ export default function EditTeam(teamId) {
                   type="text"
                   name="preferredSkillsets"
                   value={formData.preferredSkillsets}
+                  placeholder={oldFormData.preferredSkillsets}
                   onChange={handleChange}
                 />
-
                 <button onClick={() => handleSubmit()}>Push Edits</button>
               </div>
             </div>

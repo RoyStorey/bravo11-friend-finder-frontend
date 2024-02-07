@@ -86,6 +86,11 @@ export default function SingleTeam() {
               <b>Level of Classification:</b> {teamData.classificationLevel}
             </p>
           </div>
+          <button>
+            <a className="edit-team-button" href={`/edit-team/${teamId}`}>
+              Edit Team
+            </a>
+          </button>
         </div>
         <Footer />
       </div>
