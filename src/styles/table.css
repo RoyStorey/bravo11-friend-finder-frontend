@@ -13,17 +13,16 @@ tr {
   display: flex;
   align-items: center;
 }
-h2 {
-  font-weight: 400;
-}
+
 tr:hover {
   background: rgb(51, 116, 78);
   cursor: pointer;
 }
 .table-header {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   color: #ff5349;
+  padding-inline: 4rem;
 }
 td {
   padding-inline: 2rem;
@@ -31,4 +30,11 @@ td {
   /* gap: 1rem; */
   /* align-items: center; */
   flex-direction: column;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0px;
 }

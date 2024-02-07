@@ -1,0 +1,8 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.team-name {
+  color: #ff5349;
+}

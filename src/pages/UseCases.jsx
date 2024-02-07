@@ -36,7 +36,7 @@ export default function UseCases() {
     <div className="home">
       <Header />
       <div className="body">
-        <UseCasesTable data={useCasesData} />
+        <UseCasesTable data={data} />
       </div>
       <Footer />
     </div>

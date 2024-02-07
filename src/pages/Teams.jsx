@@ -7,47 +7,49 @@ import axios from "axios";
 
 const data = [
   {
-    teamName: "Team Alpha",
-    useCase: "Data Analytics for Financial Services",
+    id: 1,
+    team_name: "Team Alpha",
+    use_case: "Data Analytics for Financial Services",
     members: ["User1", "User2", "User3"],
-    captainDiscordName: "CaptainAlpha",
-    captainCodeOTP: "123456",
-    gitRepoUrl: "https://github.com/teamalpha",
+    captain_discord_name: "CaptainAlpha",
+    captain_code_otp: "123456",
+    git_repo_url: "https://github.com/teamalpha",
     location: "Remote",
-    preferredTimeToWork: "9:00 AM - 5:00 PM",
-    classificationLevel: "Confidential",
-    preferredSkillsets: ["Data Analyst", "Web Developer"],
+    preferred_time_to_work: "9:00 AM - 5:00 PM",
+    classification_level: "Confidential",
+    preferred_skillsets: ["Data Analyst", "Web Developer"],
   },
   {
-    teamName: "Team Bravo",
-    useCase: "AI-driven Customer Support",
+    id: 2,
+    team_name: "Team Bravo",
+    use_case: "AI-driven Customer Support",
     members: ["User4", "User5", "User6"],
-    captainDiscordName: "CaptainBravo",
-    captainCodeOTP: "789012",
-    gitRepoUrl: "https://github.com/teambravo",
+    captain_discord_name: "CaptainBravo",
+    captain_code_otp: "789012",
+    git_repo_url: "https://github.com/teambravo",
     location: "Office",
-    preferredTimeToWork: "10:00 AM - 6:00 PM",
-    classificationLevel: "Secret",
-    preferredSkillsets: ["AI Engineer", "Customer Support Specialist"],
+    preferred_time_to_work: "10:00 AM - 6:00 PM",
+    classification_level: "Secret",
+    preferred_skillsets: ["AI Engineer", "Customer Support Specialist"],
   },
 ];
 
 export default function Teams() {
-  const [teamsData, setTeamsData] = useState([]);
+  // const [teamsData, setTeamsData] = useState([]);
 
-  async function getTeams() {
-    return axios
-      .get(`http://localhost:3000/getTeams`)
-      .then((response) => response.data)
-      .catch((error) => console.error(error));
-  }
+  // async function getTeams() {
+  //   return axios
+  //     .get(`http://localhost:3000/getTeams`)
+  //     .then((response) => response.data)
+  //     .catch((error) => console.error(error));
+  // }
 
-  useEffect(() => {
-    getTeams().then((data) => {
-      setTeamsData(data);
-      console.log(data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   getTeams().then((data) => {
+  //     setTeamsData(data);
+  //     console.log(data);
+  //   });
+  // }, []);
 
   return (
     <div className="home">

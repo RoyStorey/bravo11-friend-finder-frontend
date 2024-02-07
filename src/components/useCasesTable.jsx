@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTable } from "react-table";
 import "../styles/table.css";
+import axios from "axios";
 
 const columns = [
   {
@@ -25,6 +26,17 @@ export default function UseCasesTable({ data }) {
       setExpandedRows([...expandedRows, rowIndex]);
     }
   };
+  function handleUseCaseDelete(useCaseId) {
+    if (window.confirm("Are you sure you would like to delete this team?")) {
+      try {
+        axios.post("http://localhost:3000/removeUseCase", {
+          id: useCaseId,
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
 
   return (
     <table {...getTableProps()} className="table-container">
@@ -53,6 +65,13 @@ export default function UseCasesTable({ data }) {
                     <td {...cell.getCellProps()}>▼ {cell.render("Cell")}</td>
                   );
                 })}
+                <button
+                  onClick={() => {
+                    handleUseCaseDelete(data[rowIndex].id);
+                  }}
+                >
+                  delete use case
+                </button>
               </tr>
               {expandedRows.includes(rowIndex) && (
                 <tr>

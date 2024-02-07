@@ -5,7 +5,7 @@ import axios from "axios";
 
 const columns = [
   {
-    Header: "List of Bravo 11 TEAMS",
+    Header: "List of Bravo 11 Teams",
     accessor: "team_name",
   },
 ];
@@ -29,7 +29,7 @@ export default function UseCasesTable({ data }) {
   function handleTeamDelete(teamId) {
     if (window.confirm("Are you sure you would like to delete this team?")) {
       try {
-        axios.post("http://localhost:3000/deleteTeam", {
+        axios.post("http://localhost:3000/removeTeam", {
           id: teamId,
         });
       } catch (error) {
@@ -44,7 +44,9 @@ export default function UseCasesTable({ data }) {
         {headerGroups.map((headerGroup) => (
           <tr {...headerGroup.getHeaderGroupProps()} className="table-header">
             {headerGroup.headers.map((column) => (
-              <th {...column.getHeaderProps()}>{column.render("Header")}</th>
+              <th {...column.getHeaderProps()}>
+                <h2>{column.render("Header")}</h2>
+              </th>
             ))}
           </tr>
         ))}
@@ -70,6 +72,7 @@ export default function UseCasesTable({ data }) {
                 >
                   delete team
                 </button>
+                <a href={`/single-team/${data[rowIndex].id}`}>see team</a>
               </tr>
               {expandedRows.includes(rowIndex) && (
                 <tr>
@@ -81,10 +84,12 @@ export default function UseCasesTable({ data }) {
                       <strong>Use Case:</strong> {data[rowIndex].use_case}
                     </p>
                     <p>
-                      <strong>Number of members:</strong> {data[rowIndex].members.length}
+                      <strong>Number of members:</strong>{" "}
+                      {data[rowIndex].members.length}
                     </p>
                     <p>
-                      <strong>Team Captain Discord Name:</strong> {data[rowIndex].captain_discord_name}
+                      <strong>Team Captain Discord Name:</strong>{" "}
+                      {data[rowIndex].captain_discord_name}
                     </p>
                     <p>
                       <strong>Git Repo:</strong> {data[rowIndex].git_repo_url}
@@ -93,13 +98,16 @@ export default function UseCasesTable({ data }) {
                       <strong>Location:</strong> {data[rowIndex].location}
                     </p>
                     <p>
-                      <strong>Preferred Work Time:</strong> {data[rowIndex].preferred_time_to_work}
+                      <strong>Preferred Work Time:</strong>{" "}
+                      {data[rowIndex].preferred_time_to_work}
                     </p>
                     <p>
-                      <strong>Classification Level:</strong> {data[rowIndex].classification_level}
+                      <strong>Classification Level:</strong>{" "}
+                      {data[rowIndex].classification_level}
                     </p>
                     <p>
-                      <strong>Preferred Skillsets:</strong> {data[rowIndex].preferred_skillsets.toString()}
+                      <strong>Preferred Skillsets:</strong>{" "}
+                      {data[rowIndex].preferred_skillsets.toString()}
                     </p>
                   </td>
                 </tr>
