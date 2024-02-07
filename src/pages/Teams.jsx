@@ -1,6 +1,7 @@
 import Header from "../components/header.jsx";
 import Footer from "../components/footer.jsx";
 import TeamsTable from "../components/teamsTable.jsx";
+import Pitch from "../components/pitch-container.jsx";
 import "../styles/home.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -52,12 +53,15 @@ export default function Teams() {
   }, []);
 
   return (
-    <div className="home">
-      <Header />
-      <div className="body">
-        <TeamsTable data={data} />
+    <>
+      <Pitch />
+      <div className="home">
+        <Header />
+        <div className="body">
+          <TeamsTable data={data} />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }

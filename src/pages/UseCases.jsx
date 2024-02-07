@@ -4,6 +4,7 @@ import Footer from "../components/footer.jsx";
 import UseCasesTable from "../components/useCasesTable.jsx";
 import "../styles/home.css";
 import axios from "axios";
+import Pitch from "../components/pitch-container.jsx";
 
 // const data = [
 //   {
@@ -33,17 +34,20 @@ export default function UseCases() {
   useEffect(() => {
     getUseCases().then((data) => {
       setUseCasesData(data);
-      console.log(data, 'test');
+      console.log(data, "test");
     });
   }, []);
 
   return (
-    <div className="home">
-      <Header />
-      <div className="body">
-        <UseCasesTable data={useCasesData} />
+    <>
+      <Pitch />
+      <div className="home">
+        <Header />
+        <div className="body">
+          <UseCasesTable data={useCasesData} />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }
