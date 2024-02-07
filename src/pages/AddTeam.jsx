@@ -44,6 +44,7 @@ export default function AddTeam() {
       <Header />
       <div className="body">
         <div className="form-container">
+          <h1 className="form-header">Add Team</h1>
           <div className="form">
             <label>Team Name</label>
             <input

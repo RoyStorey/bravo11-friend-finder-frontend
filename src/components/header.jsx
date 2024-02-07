@@ -19,7 +19,7 @@ export default function Header() {
             <FontAwesomeIcon icon={faPlus} />
             Add Team
           </a>
-          <a>
+          <a href="/add-use-case">
             <FontAwesomeIcon icon={faPlus} />
             Add Use Case
           </a>

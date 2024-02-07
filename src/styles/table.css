@@ -25,14 +25,12 @@ tr:hover {
   padding-inline: 4rem;
 }
 td {
-  padding-inline: 2rem;
   display: flex;
-  /* gap: 1rem; */
-  /* align-items: center; */
   flex-direction: column;
 }
 .teams-table-row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-inline: 2rem;
 }
