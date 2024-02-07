@@ -71,6 +71,7 @@ export default function EditTeam(teamId) {
                   name="teamName"
                   value={formData.teamName}
                   onChange={handleChange}
+                  placeholder={formData.teamName}
                 />
 
                 <label>Use Case</label>
