@@ -6,7 +6,7 @@ import axios from "axios";
 
 async function postNewUseCase(useCaseObject) {
   return axios
-    .get(`http://localhost:3000/addUseCase`, {
+    .post(`http://localhost:3000/addUseCase`, {
       params: { use_case_object: useCaseObject },
     })
     .then((response) => response.data)

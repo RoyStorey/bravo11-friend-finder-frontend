@@ -6,7 +6,7 @@ import axios from "axios";
 
 async function postNewTeam(teamObject) {
   return axios
-    .get(`http://localhost:3000/addTeam`, {
+    .post(`http://localhost:3000/addTeam`, {
       params: { team_object: teamObject },
     })
     .then((response) => response.data)
@@ -32,8 +32,10 @@ export default function AddTeam() {
 
   const handleSubmit = async () => {
     try {
-      const response = await postNewTeam(formData);
-      console.log(response); // Log the response or handle it as needed
+      console.log(formData, "form data")
+      // const response = await postNewTeam(formData);
+      await postNewTeam(formData)
+      // console.log(response); // Log the response or handle it as needed
     } catch (error) {
       console.error(error);
     }
