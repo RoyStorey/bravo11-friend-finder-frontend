@@ -5,6 +5,7 @@ import "../styles/singleTeam.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Pitch from "../components/pitch-container.jsx";
+import ImageComponent from "../components/imageRenderer.jsx";
 
 export default function SingleTeam() {
   const [teamData, setTeamData] = useState({
@@ -19,8 +20,8 @@ export default function SingleTeam() {
     preferredTimeToWork: "",
     classificationLevel: "",
     preferredSkillsets: [""],
+    image: "",
   });
-  const [members, setMembers] = useState([]);
 
   let { teamId } = useParams(); //THIS IS CORRECT
 
@@ -39,7 +40,7 @@ export default function SingleTeam() {
   useEffect(() => {
     getTeam(teamId)
       .then((data) => {
-        setTeamData(data[0]); // Update state with the received data
+        setTeamData(data); // Update state with the received data
       })
       .catch((error) => {
         console.error("Error fetching team data:", error);
@@ -154,6 +155,7 @@ export default function SingleTeam() {
       </div>
     );
   }
+  console.log(teamData);
 
   return (
     <>
@@ -162,6 +164,8 @@ export default function SingleTeam() {
         <Header />
         <div className="body">
           <div className="single-team-container">
+            {/* <ImageComponent base64Image={JSON.stringify(teamData.image)} /> */}
+            {/* <p>{JSON.stringify(teamData.image)}</p> */}
             <h1 className="team-name">{teamData.teamName}</h1>
             <h5>Team ID: {teamData.id}</h5>
             <p>

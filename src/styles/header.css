@@ -42,11 +42,12 @@ h1 {
   padding-inline: 4rem;
   background: #121416;
   padding-block: 1rem;
+  border-block: 1px solid rgba(255, 255, 255, 0.05);
 }
 .button-group {
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: 3rem;
   align-items: center;
 }
 .hyperlinks a {
@@ -59,4 +60,7 @@ h1 {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+.hyperlink-icon {
+  margin-right: 0.5rem;
 }

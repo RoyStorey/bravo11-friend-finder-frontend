@@ -70,13 +70,16 @@ export default function AddUseCase() {
     };
 
     return (
-      <div>
-        <input
-          type="file"
-          accept=".png,.jpg,.jpeg"
-          onChange={handleFileChange}
-        />
-        <button onClick={handleUpload}>Upload</button>
+      <div className="upload-container">
+        <h4>Upload Photo of Use Case POC</h4>
+        <div>
+          <input
+            type="file"
+            accept=".png,.jpg,.jpeg"
+            onChange={handleFileChange}
+          />
+          <button onClick={handleUpload}>Upload</button>
+        </div>
       </div>
     );
   };
