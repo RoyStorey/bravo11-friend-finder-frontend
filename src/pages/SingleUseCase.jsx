@@ -33,7 +33,6 @@ export default function SingleUseCase() {
     getUseCase(useCaseId)
       .then((data) => {
         setUseCaseData(data[0]); // Update state with the received data
-        console.log(data, "test");
       })
       .catch((error) => {
         console.error("Error fetching team data:", error);
@@ -48,9 +47,14 @@ export default function SingleUseCase() {
     );
 
     if (yesNoCheck) {
+      let otpCheck = window.prompt("Please enter your team-captain PIN:");
+      axios.get();
+
       return axios
         .post(`http://localhost:3000/updateTeam`, {
-          params: { useCase: useCaseName },
+          captainCode: otpCheck,
+          useCase: useCaseName,
+          id: useCaseId,
         })
         .then((response) => response.data)
         .catch((error) => console.error(error));

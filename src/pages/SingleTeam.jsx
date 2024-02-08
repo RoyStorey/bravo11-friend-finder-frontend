@@ -39,7 +39,6 @@ export default function SingleTeam() {
     getTeam(teamId)
       .then((data) => {
         setTeamData(data[0]); // Update state with the received data
-        console.log(data, "test");
       })
       .catch((error) => {
         console.error("Error fetching team data:", error);

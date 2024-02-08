@@ -27,10 +27,13 @@ export default function UseCasesTable({ data }) {
     }
   };
   function handleTeamDelete(teamId) {
+    let otpCheck = window.prompt("Enter your team PIN:");
+
     if (window.confirm("Are you sure you would like to delete this team?")) {
       try {
         axios.post("http://localhost:3000/removeTeam", {
           id: teamId,
+          captainCode: otpCheck,
         });
       } catch (error) {
         console.error(error);

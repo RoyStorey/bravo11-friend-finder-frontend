@@ -21,7 +21,6 @@ export default function EditTeam() {
     getTeam(teamId)
       .then((data) => {
         setOldFormData(data[0]); // Update state with the received data
-        console.log(data, "test");
       })
       .catch((error) => {
         console.error("Error fetching team data:", error);
