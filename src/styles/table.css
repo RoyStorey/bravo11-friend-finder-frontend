@@ -20,9 +20,9 @@ tr:hover {
 }
 .table-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   color: #ff5349;
-  padding-inline: 4rem;
+  /* padding-inline: 4rem; */
 }
 td {
   display: flex;

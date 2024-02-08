@@ -101,11 +101,11 @@ export default function SingleTeam() {
     return (
       <div>
         <h2>Team Members</h2>
-        <ul>
+        <ol>
           {teamMembers.map((member, index) => (
             <li key={index}>{member.name}</li>
           ))}
-        </ul>
+        </ol>
       </div>
     );
   }
@@ -121,9 +121,6 @@ export default function SingleTeam() {
             <h5>Team ID: {teamData.id}</h5>
             <p>
               <b>Use Case:</b> {teamData.useCase}
-            </p>
-            <p>
-              <b>Number of Members: {teamData.members?.length ?? "0"}</b>
             </p>
             <p>
               <b>Captain's Discord Name: </b>

@@ -56,7 +56,7 @@ export default function UseCasesTable({ data }) {
                   );
                 })}
                 <p>
-                  <b>Classification Level: </b>
+                  <b>Required Classification Level: </b>
                   {data[rowIndex].classificationLevel}
                 </p>
                 <a href={`/single-team/${data[rowIndex].id}`}>View Team</a>
@@ -69,10 +69,6 @@ export default function UseCasesTable({ data }) {
                     </p>
                     <p>
                       <strong>Use Case:</strong> {data[rowIndex].useCase}
-                    </p>
-                    <p>
-                      <strong>Number of members:</strong>{" "}
-                      {data[rowIndex].members?.length ?? 0}
                     </p>
                     <p>
                       <strong>Team Captain Discord Name:</strong>{" "}
