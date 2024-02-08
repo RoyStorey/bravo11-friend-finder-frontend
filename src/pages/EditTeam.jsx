@@ -31,16 +31,21 @@ export default function EditTeam() {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-  async function updateTeam(teamId, formData) {
+  async function updateTeam(teamId, formData, otp) {
     return axios
-      .post(`http://localhost:3000/updateTeam`, { ...formData, id: teamId })
+      .post(`http://localhost:3000/updateTeam`, {
+        ...formData,
+        id: teamId,
+        captainCode: otp,
+      })
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }
   const handleSubmit = async () => {
+    let otpCheck = window.prompt("Supply your team captain PIN:");
     try {
       console.log(formData, "form data");
-      await updateTeam(teamId, formData);
+      await updateTeam(teamId, formData, otpCheck);
     } catch (error) {
       console.error(error);
     }

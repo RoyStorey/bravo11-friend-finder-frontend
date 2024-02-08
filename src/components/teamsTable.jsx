@@ -26,7 +26,7 @@ export default function UseCasesTable({ data }) {
       setExpandedRows([...expandedRows, rowIndex]);
     }
   };
-  function handleTeamDelete(teamId) {
+  function handleTeamDelete(teamId, teamName) {
     let otpCheck = window.prompt("Enter your team PIN:");
 
     if (window.confirm("Are you sure you would like to delete this team?")) {
@@ -34,6 +34,7 @@ export default function UseCasesTable({ data }) {
         axios.post("http://localhost:3000/removeTeam", {
           id: teamId,
           captainCode: otpCheck,
+          teamName: teamName,
         });
       } catch (error) {
         console.error(error);
@@ -75,7 +76,10 @@ export default function UseCasesTable({ data }) {
                 </p>
                 <button
                   onClick={() => {
-                    handleTeamDelete(data[rowIndex].id);
+                    handleTeamDelete(
+                      data[rowIndex].id,
+                      data[rowIndex].teamName
+                    );
                   }}
                 >
                   delete team
