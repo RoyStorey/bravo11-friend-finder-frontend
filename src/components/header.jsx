@@ -1,12 +1,13 @@
 import "../styles/header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faPerson } from "@fortawesome/free-solid-svg-icons";
 
 export default function Header() {
   return (
     <div className="header-container">
       <title>
+        <FontAwesomeIcon icon={faPerson} className="header-icon" />
         <h1>Bravo 11 Friend Finder</h1>
       </title>
       <div className="hyperlinks">
