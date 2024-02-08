@@ -102,7 +102,7 @@ export default function SingleUseCase() {
             </div>
             <h5>Use Case ID: {useCaseData.id}</h5>
             <p>
-              <b>Use Case:</b> {useCaseData.description}
+              <b>Use Case Description:</b> {useCaseData.description}
             </p>
             <p>
               <b>Number of Members: {useCaseData.classificationLevel}</b>
