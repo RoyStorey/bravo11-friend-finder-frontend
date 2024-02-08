@@ -90,6 +90,11 @@ export default function SingleTeam() {
               Edit Team
             </a>
           </button>
+          <button>
+            <a className="edit-team-button" href={`/join-team/${teamId}`}>
+              Join Team
+            </a>
+          </button>
         </div>
         <Footer />
       </div>

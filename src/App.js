@@ -9,6 +9,10 @@ import AddTeam from "./pages/AddTeam.jsx";
 import AddUseCase from "./pages/AddUseCase.jsx";
 import SingleUseCase from "./pages/SingleUseCase.jsx";
 import EditTeam from "./pages/EditTeam.jsx";
+import JoinTeam from "./pages/JoinTeam.jsx";
+import EditUseCase from "./pages/EditUseCase.jsx";
+
+function addMemberToTeam(memberData, teamId) {}
 
 function App() {
   return (
@@ -27,8 +31,16 @@ function App() {
           element={<EditTeam teamId=":teamId" />}
         />
         <Route
+          path="/edit-use-case/:useCaseId"
+          element={<EditUseCase useCaseId=":useCaseId" />}
+        />
+        <Route
           path="/single-use-case/:useCaseId"
           element={<SingleUseCase useCaseId=":useCaseId" />}
+        />
+        <Route
+          path="/join-team/:teamId"
+          element={<JoinTeam teamId=":teamId" />}
         />
         <Route path="*" element={<NoPage />} />
       </Routes>
