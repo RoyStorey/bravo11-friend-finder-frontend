@@ -51,10 +51,9 @@ export default function SingleUseCase() {
       axios.get();
 
       return axios
-        .post(`http://localhost:3000/updateTeam`, {
+        .post(`http://localhost:3000/addTeamToUseCase`, {
           captainCode: otpCheck,
-          useCase: useCaseName,
-          id: useCaseId,
+          title: useCaseName,
         })
         .then((response) => response.data)
         .catch((error) => console.error(error));
