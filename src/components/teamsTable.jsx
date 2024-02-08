@@ -56,8 +56,8 @@ export default function UseCasesTable({ data }) {
                   );
                 })}
                 <p>
-                  <b>Number of Members: </b>
-                  {data[rowIndex].members?.length ?? 0}
+                  <b>Classification Level: </b>
+                  {data[rowIndex].classificationLevel}
                 </p>
                 <a href={`/single-team/${data[rowIndex].id}`}>View Team</a>
               </tr>
