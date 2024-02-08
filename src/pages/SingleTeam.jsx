@@ -52,15 +52,28 @@ export default function SingleTeam() {
     let otpCheck = window.prompt("Enter your team PIN:");
 
     if (window.confirm("Are you sure you would like to delete this team?")) {
-      try {
-        axios.post("http://localhost:3000/removeTeam", {
+      axios
+        .post("http://localhost:3000/removeTeam", {
           id: teamId,
           captainCode: otpCheck,
           teamName: teamName,
+        })
+        .then((response) => {
+          if (response.status === 200) {
+            window.alert("Team deleted successfully.");
+            window.location.href = "/use-cases/";
+          } else {
+            window.alert("Failed to delete team. Please try again.");
+          }
+        })
+        .catch((error) => {
+          if (error.response && error.response.status === 403) {
+            window.alert("Incorrect team PIN. Please try again.");
+          } else {
+            console.error("Error deleting team:", error);
+            window.alert("An error occurred while deleting the team.");
+          }
         });
-      } catch (error) {
-        console.error(error);
-      }
     }
   }
 
@@ -69,11 +82,23 @@ export default function SingleTeam() {
 
     if (window.confirm("Are you sure you would like to delete this user?")) {
       try {
-        axios.post("http://localhost:3000/removeMember", {
-          teamId: teamId,
-          memberId: memberId,
-          captainCode: otpCheck,
-        });
+        axios
+          .post("http://localhost:3000/removeMember", {
+            teamId: teamId,
+            memberId: memberId,
+            captainCode: otpCheck,
+          })
+          .then((response) => {
+            if (response.status === 200) {
+              window.alert("Member successfully deleted.");
+            } else {
+              window.alert("Failed to delete member. Please try again.");
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+            window.alert("An error occurred while deleting the member.");
+          });
       } catch (error) {
         console.error(error);
       }

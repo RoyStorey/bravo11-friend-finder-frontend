@@ -7,7 +7,13 @@ export default function Header() {
   return (
     <div className="header-container">
       <title>
-        <h1>Bravo 11 Team Builder</h1>
+        <h1
+          onClick={() => {
+            window.location.href = "/";
+          }}
+        >
+          Bravo 11 Team Builder
+        </h1>
         <FontAwesomeIcon icon={faPerson} className="header-icon" />
       </title>
       <div className="hyperlinks">

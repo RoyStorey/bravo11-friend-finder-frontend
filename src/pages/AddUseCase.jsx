@@ -7,9 +7,7 @@ import Pitch from "../components/pitch-container.jsx";
 
 async function postNewUseCase(useCaseObject) {
   return axios
-    .post(`http://localhost:3000/addUseCase`, {
-      params: { use_case_object: useCaseObject },
-    })
+    .post(`http://localhost:3000/addUseCase`, useCaseObject)
     .then((response) => response.data)
     .catch((error) => console.error(error));
 }
@@ -37,6 +35,8 @@ export default function AddUseCase() {
   const handleSubmit = async () => {
     try {
       const response = await postNewUseCase(formData);
+      window.alert("Use Case successfully created!");
+      window.location.href = "/use-cases/";
       console.log(response); // Log the response or handle it as needed
     } catch (error) {
       console.error(error);

@@ -122,15 +122,11 @@ export default function SingleUseCase() {
               <b>Has data?</b> {useCaseData.hasData ? "Yes" : "No"}
             </p>
           </div>
-          <button>
-            <a
-              className="edit-team-button"
-              href={`/edit-use-case/${useCaseId}`}
-            >
-              Edit Use Case
-            </a>
+          <button className="edit-team-button">
+            <a href={`/edit-use-case/${useCaseId}`}>Edit Use Case</a>
           </button>
           <button
+            className="edit-team-button"
             onClick={() => {
               handleUseCaseDelete(useCaseId);
             }}

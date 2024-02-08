@@ -60,7 +60,7 @@ export default function UseCasesTable({ data }) {
                 </a>
               </tr>
               {expandedRows.includes(rowIndex) && (
-                <tr>
+                <tr className="expanded-team-table-row">
                   <td colSpan={columns.length}>
                     <p>
                       <strong>Description:</strong> {data[rowIndex].description}

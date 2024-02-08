@@ -45,11 +45,13 @@ export default function JoinTeam() {
 
   async function handleSubmit() {
     try {
-      console.log(userData, teamId);
       await addUserToTeam(userData, teamId);
+      window.alert("Member successfully added to the team.");
     } catch (error) {
-      console.error(error);
+      console.error("Error adding member to team:", error);
+      window.alert("Failed to add member to the team. Please try again.");
     }
+    window.location.href = `/single-team/${teamId}`;
   }
 
   return (
@@ -78,7 +80,7 @@ export default function JoinTeam() {
                 <input
                   onChange={handleChange}
                   name="skillsets"
-                  value={userData.skillsets}
+                  value={userData.skillset}
                 />
 
                 <button

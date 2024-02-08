@@ -49,14 +49,14 @@ export default function AddTeam() {
   const handleSubmit = async () => {
     try {
       console.log(formData, "form data");
-      // const response = await postNewTeam(formData);
       await postNewTeam(formData);
       window.alert(
-        `Your Captain PIN is "${OTP}", WRITE THIS DOWN! If you want to make any changes in the future, it will ask for your PIN.`
+        `Team successfully created! Your Captain PIN is "${OTP}". Write this down! If you want to make any changes in the future, it will ask for your PIN.`
       );
-      // console.log(response); // Log the response or handle it as needed
+      window.location.href = "/";
     } catch (error) {
-      console.error(error);
+      console.error("Error creating team:", error);
+      window.alert("Failed to create team. Please try again.");
     }
   };
   const UploadImage = () => {

@@ -41,13 +41,32 @@ export default function EditTeam() {
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }
+  // const handleSubmit = async () => {
+  //   let otpCheck = window.prompt("Supply your team captain PIN:");
+  //   try {
+  //     console.log(formData, "form data");
+  //     await updateTeam(teamId, formData, otpCheck);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
   const handleSubmit = async () => {
     let otpCheck = window.prompt("Supply your team captain PIN:");
     try {
-      console.log(formData, "form data");
-      await updateTeam(teamId, formData, otpCheck);
+      const result = await updateTeam(teamId, formData, otpCheck);
+      console.log(result);
+      if (!result) {
+        // If the OTP does not match the captain code
+        window.alert("Invalid PIN. Please try again.");
+      } else {
+        // If the update is successful
+        window.alert("Team updated successfully!");
+        window.location.href = `/single-team/${teamId}`;
+      }
     } catch (error) {
-      console.error(error);
+      // If an error occurs during the update process
+      console.error("Error updating team:", error);
+      window.alert("Failed to update team. Please try again.");
     }
   };
 

@@ -15,8 +15,6 @@ tr {
 }
 
 tr:hover {
-  background: rgb(51, 116, 78);
-  cursor: pointer;
 }
 .table-header {
   display: flex;
@@ -34,6 +32,16 @@ td {
   justify-content: space-between;
   padding-inline: 2rem;
 }
+.teams-table-row:hover {
+  background: rgb(51, 116, 78);
+  cursor: pointer;
+}
 .teams-table-row td {
   width: 40%;
+}
+
+.expanded-team-table-row {
+  /* background-color:Red; */
+  padding-inline: 2rem;
+  border-inline: 1px solid white;
 }

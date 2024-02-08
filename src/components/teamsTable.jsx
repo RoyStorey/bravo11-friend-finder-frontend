@@ -62,7 +62,7 @@ export default function UseCasesTable({ data }) {
                 <a href={`/single-team/${data[rowIndex].id}`}>View Team</a>
               </tr>
               {expandedRows.includes(rowIndex) && (
-                <tr>
+                <tr className="expanded-team-table-row">
                   <td colSpan={columns.length}>
                     <p>
                       <strong>Team Name:</strong> {data[rowIndex].teamName}

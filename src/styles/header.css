@@ -18,6 +18,11 @@ title {
   justify-content: flex-start;
   color: #88cb6d;
 }
+title h1:hover {
+  color: white;
+  cursor: pointer;
+  text-shadow: 2px 2px 10px black;
+}
 h1 {
   font-weight: 700;
 }

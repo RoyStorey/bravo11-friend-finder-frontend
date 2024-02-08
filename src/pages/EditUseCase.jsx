@@ -32,22 +32,31 @@ export default function EditUseCase() {
     setFormData({ ...formData, [name]: value });
   };
   async function updateUseCase(useCaseId, formData, otp) {
-    return axios
-      .post(`http://localhost:3000/updateUseCase`, {
+    try {
+      const response = await axios.post("http://localhost:3000/updateUseCase", {
         ...formData,
         id: useCaseId,
         useCaseCode: otp,
-      })
-      .then((response) => response.data)
-      .catch((error) => console.error(error));
+      });
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
   }
+
   const handleSubmit = async () => {
     let otpCheck = window.prompt("Supply your use case PIN:");
     try {
-      console.log(formData, "form data");
       await updateUseCase(useCaseId, formData, otpCheck);
+      window.alert("Use case updated successfully!");
     } catch (error) {
-      console.error(error);
+      if (error.response && error.response.status === 403) {
+        window.alert("Incorrect use case PIN. Please try again.");
+      } else {
+        console.error("Error updating use case:", error);
+        window.alert("Failed to update use case. Please try again.");
+      }
     }
   };
 
