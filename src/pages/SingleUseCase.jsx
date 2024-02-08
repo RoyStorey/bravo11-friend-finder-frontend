@@ -54,10 +54,22 @@ export default function SingleUseCase() {
           captainCode: otpCheck,
           useCaseTitle: useCaseName,
         })
-        .then((response) => response.data)
-        .catch((error) => console.error(error));
+        .then((response) => {
+          if (response.status === 200) {
+            window.alert("Team's use case added successfully!");
+            window.location.href = "/use-cases/";
+          } else {
+            window.alert("Failed to add team's use case. Please try again.");
+          }
+          return response.data;
+        })
+        .catch((error) => {
+          console.error("Error adding team's use case:", error);
+          window.alert("An error occurred while adding team's use case.");
+        });
     }
   }
+
   function handleUseCaseDelete(useCaseId) {
     if (window.confirm("Are you sure you would like to delete this team?")) {
       try {
