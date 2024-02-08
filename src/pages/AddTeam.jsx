@@ -7,9 +7,7 @@ import Pitch from "../components/pitch-container.jsx";
 
 async function postNewTeam(teamObject) {
   return axios
-    .post(`http://localhost:3000/addTeam`, {
-      params: { team_object: teamObject },
-    })
+    .post(`http://localhost:3000/addTeam`, teamObject)
     .then((response) => response.data)
     .catch((error) => console.error(error));
 }
@@ -31,6 +29,8 @@ export default function AddTeam() {
   const [formData, setFormData] = useState({
     teamName: "",
     useCase: "",
+    captainName: "",
+    captainSkillset: "",
     captainDiscordName: "",
     captainCode: OTP,
     gitRepoUrl: "",
@@ -123,14 +123,6 @@ export default function AddTeam() {
                   onChange={handleChange}
                 />
 
-                <label>Captain's Discord Name</label>
-                <input
-                  type="text"
-                  name="captainDiscordName"
-                  value={formData.captainDiscordName}
-                  onChange={handleChange}
-                />
-
                 <label>Git Repo URL</label>
                 <input
                   type="text"
@@ -170,6 +162,28 @@ export default function AddTeam() {
                   type="text"
                   name="preferredSkillsets"
                   value={formData.preferredSkillsets}
+                  onChange={handleChange}
+                />
+                <h2>Captain Information</h2>
+                <label>Captain's Name</label>
+                <input
+                  type="text"
+                  name="captainName"
+                  value={formData.captainName}
+                  onChange={handleChange}
+                />
+                <label>Captain's Discord Name</label>
+                <input
+                  type="text"
+                  name="captainDiscordName"
+                  value={formData.captainDiscordName}
+                  onChange={handleChange}
+                />
+                <label>Captain's Skillset (comma delimited)</label>
+                <input
+                  type="text"
+                  name="captainSkillset"
+                  value={formData.captainSkillset}
                   onChange={handleChange}
                 />
 
