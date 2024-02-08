@@ -28,6 +28,23 @@ h5 {
   color: black;
 }
 
+li {
+  margin-bottom: 1rem;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.team-member button {
+  height: min-content;
+}
+.team-member p {
+  margin: 0px;
+}
+
 button {
   /* margin-top: 1rem; */
 }

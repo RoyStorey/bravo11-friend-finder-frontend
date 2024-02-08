@@ -103,7 +103,27 @@ export default function SingleTeam() {
         <h2>Team Members</h2>
         <ol>
           {teamMembers.map((member, index) => (
-            <li key={index}>{member.name}</li>
+            <div className="team-member">
+              <li key={index}>
+                <b>Name: </b>
+                {member.name}
+              </li>
+              <p>
+                <b>Discord Name: </b>
+                {member.discordName}
+              </p>
+              <p>
+                <b>Skillset: </b>
+                {member.skillsets}
+              </p>
+              <button
+                onClick={() => {
+                  handleMemberDelete(teamId, member.id);
+                }}
+              >
+                Remove Team Member
+              </button>
+            </div>
           ))}
         </ol>
       </div>
