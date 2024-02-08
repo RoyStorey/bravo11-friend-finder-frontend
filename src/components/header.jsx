@@ -7,8 +7,8 @@ export default function Header() {
   return (
     <div className="header-container">
       <title>
+        <h1>Bravo 11 Team Builder</h1>
         <FontAwesomeIcon icon={faPerson} className="header-icon" />
-        <h1>Bravo 11 Friend Finder</h1>
       </title>
       <div className="hyperlinks">
         <div className="button-group">

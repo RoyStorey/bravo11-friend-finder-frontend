@@ -22,8 +22,17 @@ h5 {
 }
 .edit-team-button {
   color: black;
+  margin-top: 1rem;
+}
+.edit-team-button a {
+  color: black;
 }
 
 button {
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
+}
+.member-name {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
 }

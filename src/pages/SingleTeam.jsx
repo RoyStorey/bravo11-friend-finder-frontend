@@ -62,6 +62,69 @@ export default function SingleTeam() {
       }
     }
   }
+  async function getTeamMembers(teamId) {
+    try {
+      const response = await axios.get(
+        "http://localhost:3000/getMembersByTeam",
+        {
+          params: {
+            teamId: teamId,
+          },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  function handleMemberDelete(teamId, memberId) {
+    let otpCheck = window.prompt("Enter your team PIN:");
+
+    if (window.confirm("Are you sure you would like to delete this user?")) {
+      try {
+        axios.post("http://localhost:3000/removeMember", {
+          teamId: teamId,
+          memberId: memberId,
+          captainCode: otpCheck,
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
+
+  let members = [
+    { name: "John Welter", discordName: "Spoilt" },
+    { name: "Roy Dewey Storey", discordName: "Woman's Delight" },
+  ];
+
+  function TeamMembersList({ teamMembers }) {
+    return (
+      <div>
+        <h2>Team Members</h2>
+        <ol>
+          {teamMembers.map((member, index) => (
+            <li key={index}>
+              <div>
+                <h5 className="member-name">
+                  Name: {member.name}
+                  <button
+                    onClick={() => {
+                      handleMemberDelete(teamId, member.memberId);
+                    }}
+                  >
+                    Delete User
+                  </button>
+                </h5>
+                <p>Discord Name: {member.discordName}</p>
+                <p>Skillset: {member.skillsets}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -100,18 +163,16 @@ export default function SingleTeam() {
             <p>
               <b>Level of Classification:</b> {teamData.classificationLevel}
             </p>
+            <TeamMembersList teamMembers={members} />
           </div>
-          <button>
-            <a className="edit-team-button" href={`/edit-team/${teamId}`}>
-              Edit Team
-            </a>
+          <button className="edit-team-button">
+            <a href={`/edit-team/${teamId}`}>Edit Team</a>
           </button>
-          <button>
-            <a className="edit-team-button" href={`/join-team/${teamId}`}>
-              Join Team
-            </a>
+          <button className="edit-team-button">
+            <a href={`/join-team/${teamId}`}>Join Team</a>
           </button>
           <button
+            className="edit-team-button"
             onClick={() => {
               handleTeamDelete(teamId, teamData.teamName);
             }}

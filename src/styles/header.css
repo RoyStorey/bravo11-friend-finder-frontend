@@ -5,7 +5,7 @@
   align-items: left;
   flex-direction: column;
   /* justify-content: space-evenly; */
-  padding-inline: 5rem;
+  padding-inline: 4rem;
   padding-block: 2rem;
   /* background: rgb(39, 71, 107); */
 }
@@ -23,7 +23,7 @@ h1 {
 }
 .header-icon {
   height: 2.5rem;
-  margin-right: 1rem;
+  margin-left: 1rem;
 }
 .hyperlinks {
   display: flex;
