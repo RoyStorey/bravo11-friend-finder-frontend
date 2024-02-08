@@ -48,7 +48,6 @@ export default function SingleUseCase() {
 
     if (yesNoCheck) {
       let otpCheck = window.prompt("Please enter your team-captain PIN:");
-      axios.get();
 
       return axios
         .post(`http://localhost:3000/addTeamToUseCase`, {
