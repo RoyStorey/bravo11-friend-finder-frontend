@@ -20,6 +20,7 @@ export default function SingleTeam() {
     classificationLevel: "",
     preferredSkillsets: [""],
   });
+  const [members, setMembers] = useState([]);
 
   let { teamId } = useParams(); //THIS IS CORRECT
 
@@ -62,21 +63,7 @@ export default function SingleTeam() {
       }
     }
   }
-  async function getTeamMembers(teamId) {
-    try {
-      const response = await axios.get(
-        "http://localhost:3000/getMembersByTeam",
-        {
-          params: {
-            teamId: teamId,
-          },
-        }
-      );
-      return response.data;
-    } catch (error) {
-      console.error(error);
-    }
-  }
+
   function handleMemberDelete(teamId, memberId) {
     let otpCheck = window.prompt("Enter your team PIN:");
 
@@ -93,35 +80,32 @@ export default function SingleTeam() {
     }
   }
 
-  let members = [
-    { name: "John Welter", discordName: "Spoilt" },
-    { name: "Roy Dewey Storey", discordName: "Woman's Delight" },
-  ];
+  function TeamMembersList({ teamId }) {
+    const [teamMembers, setTeamMembers] = useState([]);
 
-  function TeamMembersList({ teamMembers }) {
+    useEffect(() => {
+      async function fetchTeamMembers() {
+        try {
+          const response = await axios.get(
+            `http://localhost:3000/getMembersByTeam/${teamId}`
+          );
+          setTeamMembers(response.data);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+
+      fetchTeamMembers();
+    }, [teamId]);
+
     return (
       <div>
         <h2>Team Members</h2>
-        <ol>
+        <ul>
           {teamMembers.map((member, index) => (
-            <li key={index}>
-              <div>
-                <h5 className="member-name">
-                  Name: {member.name}
-                  <button
-                    onClick={() => {
-                      handleMemberDelete(teamId, member.memberId);
-                    }}
-                  >
-                    Delete User
-                  </button>
-                </h5>
-                <p>Discord Name: {member.discordName}</p>
-                <p>Skillset: {member.skillsets}</p>
-              </div>
-            </li>
+            <li key={index}>{member.name}</li>
           ))}
-        </ol>
+        </ul>
       </div>
     );
   }
@@ -163,7 +147,7 @@ export default function SingleTeam() {
             <p>
               <b>Level of Classification:</b> {teamData.classificationLevel}
             </p>
-            <TeamMembersList teamMembers={members} />
+            <TeamMembersList teamId={teamId} />
           </div>
           <button className="edit-team-button">
             <a href={`/edit-team/${teamId}`}>Edit Team</a>
