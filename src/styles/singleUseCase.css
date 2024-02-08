@@ -16,7 +16,11 @@
   background: transparent;
   color: white;
   border: none;
+  height: min-content;
+  padding: 1rem;
+  outline: 1px solid white;
 }
 .use-case-button:hover {
   color: #88cb6d;
+  cursor: pointer;
 }

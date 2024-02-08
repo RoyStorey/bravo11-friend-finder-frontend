@@ -26,21 +26,6 @@ export default function UseCasesTable({ data }) {
       setExpandedRows([...expandedRows, rowIndex]);
     }
   };
-  function handleTeamDelete(teamId, teamName) {
-    let otpCheck = window.prompt("Enter your team PIN:");
-
-    if (window.confirm("Are you sure you would like to delete this team?")) {
-      try {
-        axios.post("http://localhost:3000/removeTeam", {
-          id: teamId,
-          captainCode: otpCheck,
-          teamName: teamName,
-        });
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  }
 
   return (
     <table {...getTableProps()} className="table-container">
@@ -74,17 +59,7 @@ export default function UseCasesTable({ data }) {
                   <b>Number of Members: </b>
                   {data[rowIndex].members?.length ?? 0}
                 </p>
-                <button
-                  onClick={() => {
-                    handleTeamDelete(
-                      data[rowIndex].id,
-                      data[rowIndex].teamName
-                    );
-                  }}
-                >
-                  delete team
-                </button>
-                <a href={`/single-team/${data[rowIndex].id}`}>see team</a>
+                <a href={`/single-team/${data[rowIndex].id}`}>View Team</a>
               </tr>
               {expandedRows.includes(rowIndex) && (
                 <tr>

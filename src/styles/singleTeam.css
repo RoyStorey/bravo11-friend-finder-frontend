@@ -23,3 +23,7 @@ h5 {
 .edit-team-button {
   color: black;
 }
+
+button {
+  margin-top: 1rem;
+}

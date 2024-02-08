@@ -26,17 +26,6 @@ export default function UseCasesTable({ data }) {
       setExpandedRows([...expandedRows, rowIndex]);
     }
   };
-  function handleUseCaseDelete(useCaseId) {
-    if (window.confirm("Are you sure you would like to delete this team?")) {
-      try {
-        axios.post("http://localhost:3000/removeUseCase", {
-          id: useCaseId,
-        });
-      } catch (error) {
-        console.error(error);
-      }
-    }
-  }
 
   return (
     <table {...getTableProps()} className="table-container">
@@ -66,15 +55,8 @@ export default function UseCasesTable({ data }) {
                     <td {...cell.getCellProps()}>▼ {cell.render("Cell")}</td>
                   );
                 })}
-                <button
-                  onClick={() => {
-                    handleUseCaseDelete(data[rowIndex].id);
-                  }}
-                >
-                  delete use case
-                </button>
                 <a href={`/single-use-case/${data[rowIndex].id}`}>
-                  see use case
+                  View Use Case
                 </a>
               </tr>
               {expandedRows.includes(rowIndex) && (
@@ -89,7 +71,7 @@ export default function UseCasesTable({ data }) {
                     </p>
                     <p>
                       <strong>Preferred Skillsets:</strong>{" "}
-                      {data[rowIndex].desiredSkillsets?.toString() ?? 'None'}
+                      {data[rowIndex].desiredSkillsets?.toString() ?? "None"}
                     </p>
                     <p>
                       <strong>Desired Deliverable:</strong>{" "}

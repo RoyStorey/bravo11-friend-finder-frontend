@@ -60,6 +60,17 @@ export default function SingleUseCase() {
         .catch((error) => console.error(error));
     }
   }
+  function handleUseCaseDelete(useCaseId) {
+    if (window.confirm("Are you sure you would like to delete this team?")) {
+      try {
+        axios.post("http://localhost:3000/removeUseCase", {
+          id: useCaseId,
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
 
   return (
     <>
@@ -111,6 +122,21 @@ export default function SingleUseCase() {
               <b>Has data?</b> {useCaseData.hasData ? "Yes" : "No"}
             </p>
           </div>
+          <button>
+            <a
+              className="edit-team-button"
+              href={`/edit-use-case/${useCaseId}`}
+            >
+              Edit Use Case
+            </a>
+          </button>
+          <button
+            onClick={() => {
+              handleUseCaseDelete(useCaseId);
+            }}
+          >
+            Delete Use Case
+          </button>
         </div>
         <Footer />
       </div>

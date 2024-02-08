@@ -47,6 +47,22 @@ export default function SingleTeam() {
   }, []);
   //Correctly querying
 
+  function handleTeamDelete(teamId, teamName) {
+    let otpCheck = window.prompt("Enter your team PIN:");
+
+    if (window.confirm("Are you sure you would like to delete this team?")) {
+      try {
+        axios.post("http://localhost:3000/removeTeam", {
+          id: teamId,
+          captainCode: otpCheck,
+          teamName: teamName,
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
+
   return (
     <>
       <Pitch />
@@ -94,6 +110,13 @@ export default function SingleTeam() {
             <a className="edit-team-button" href={`/join-team/${teamId}`}>
               Join Team
             </a>
+          </button>
+          <button
+            onClick={() => {
+              handleTeamDelete(teamId, teamData.teamName);
+            }}
+          >
+            Delete Team
           </button>
         </div>
         <Footer />
