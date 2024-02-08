@@ -173,7 +173,7 @@ export default function SingleTeam() {
             </p>
             <p>
               <b>Git Repo URL: </b>
-              {teamData.gitRepoUrl}
+              <a href={teamData.gitRepoUrl}>{teamData.gitRepoUrl}</a>
             </p>
             <p>
               <b>Location: </b>

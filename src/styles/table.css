@@ -19,7 +19,7 @@ tr:hover {
 .table-header {
   display: flex;
   justify-content: center;
-  color: #ff5349;
+  color: #00a0a0;
   /* padding-inline: 4rem; */
 }
 td {
@@ -33,8 +33,9 @@ td {
   padding-inline: 2rem;
 }
 .teams-table-row:hover {
-  background: rgb(51, 116, 78);
+  background: teal;
   cursor: pointer;
+  border-inline: 1px solid rgba(255, 255, 255, 0.8);
 }
 .teams-table-row td {
   width: 40%;
@@ -43,5 +44,5 @@ td {
 .expanded-team-table-row {
   /* background-color:Red; */
   padding-inline: 2rem;
-  border-inline: 1px solid white;
+  border-inline: 1px solid rgba(255, 255, 255, 0.8);
 }

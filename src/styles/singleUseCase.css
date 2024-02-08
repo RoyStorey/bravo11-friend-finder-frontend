@@ -4,7 +4,7 @@
   justify-content: flex-start;
 }
 .use-case {
-  color: #ff5349;
+  color: #00a0a0;
   text-decoration: underline;
 }
 .use-case-header {
@@ -14,13 +14,13 @@
 }
 .use-case-button {
   background: transparent;
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
   border: none;
   height: min-content;
   padding: 1rem;
-  outline: 1px solid white;
+  outline: 1px solid rgba(255, 255, 255, 0.8);
 }
 .use-case-button:hover {
-  color: #88cb6d;
+  color: #e1c16e;
   cursor: pointer;
 }

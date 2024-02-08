@@ -4,7 +4,7 @@
   justify-content: flex-start;
 }
 .team-name {
-  color: #ff5349;
+  color: #00a0a0;
   text-decoration: underline;
 }
 .single-team-container {
@@ -13,7 +13,8 @@
   gap: 1rem;
   margin: 0px;
 }
-.single-team-container > p {
+.single-team-container > p,
+a {
   margin: 0px;
 }
 .single-team-container > h1,
