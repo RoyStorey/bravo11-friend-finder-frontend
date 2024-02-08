@@ -1,0 +1,32 @@
+.tables-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.left-side {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background: rgba(0, 0, 0, 0.1); */
+}
+.left-side th,
+td {
+  width: 50%;
+  text-align: left;
+}
+/* .table-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-inline: 2rem;
+} */
+
+.right-side {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background: rgba(0, 0, 0, 0.1); */
+}

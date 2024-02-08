@@ -31,14 +31,12 @@ td {
   flex-direction: row;
   justify-content: space-between;
   padding-inline: 2rem;
+  height: 3rem;
 }
 .teams-table-row:hover {
   background: teal;
   cursor: pointer;
   border-inline: 1px solid rgba(255, 255, 255, 0.8);
-}
-.teams-table-row td {
-  width: 40%;
 }
 
 .expanded-team-table-row {

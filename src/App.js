@@ -11,6 +11,7 @@ import SingleUseCase from "./pages/SingleUseCase.jsx";
 import EditTeam from "./pages/EditTeam.jsx";
 import JoinTeam from "./pages/JoinTeam.jsx";
 import EditUseCase from "./pages/EditUseCase.jsx";
+import SadBoyHours from "./pages/SadBoyHours.jsx";
 
 function addMemberToTeam(memberData, teamId) {}
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/use-cases" element={<UseCases />}></Route>
         <Route path="/add-team" element={<AddTeam />}></Route>
         <Route path="/add-use-case" element={<AddUseCase />}></Route>
+        <Route path="/sad-boy-hours" element={<SadBoyHours />}></Route>
         <Route
           path="/single-team/:teamId"
           element={<SingleTeam teamId=":teamId" />}
