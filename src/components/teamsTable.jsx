@@ -75,7 +75,7 @@ export default function UseCasesTable({ data }) {
                       {data[rowIndex].captainDiscordName}
                     </p>
                     <p>
-                      <strong>Git Repo:</strong> {data[rowIndex].gitRepoUrl}
+                      <strong>Git Repo:</strong> <a href={data[rowIndex].gitRepoUrl}>{data[rowIndex].gitRepoUrl}</a>
                     </p>
                     <p>
                       <strong>Location:</strong> {data[rowIndex].location}
@@ -90,7 +90,7 @@ export default function UseCasesTable({ data }) {
                     </p>
                     <p>
                       <strong>Preferred Skillsets:</strong>{" "}
-                      {data[rowIndex].preferredSkillsets.toString()}
+                      {data[rowIndex]?.preferredSkills.toString() ?? "No skills specified."}
                     </p>
                   </td>
                 </tr>

@@ -189,7 +189,7 @@ export default function SingleTeam() {
             </p>
             <p>
               <b>Preferred Skillsets:</b>{" "}
-              {teamData.preferredSkillsets?.toString() ?? "0"}
+              {teamData.preferredSkills?.toString() ?? "No Skillsets Specified"}
             </p>
             <p>
               <b>Level of Classification:</b> {teamData.classificationLevel}

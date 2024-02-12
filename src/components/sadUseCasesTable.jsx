@@ -3,6 +3,8 @@ import { useTable } from "react-table";
 import "../styles/table.css";
 
 export default function SadUseCasesTable({ data }) {
+
+
   const columns = React.useMemo(
     () => [
       {
@@ -22,6 +24,9 @@ export default function SadUseCasesTable({ data }) {
       columns,
       data,
     });
+  if (!data || data.length === 0) {
+    return <p>No use cases with no teams found.</p>;
+  }
 
   return (
     <table {...getTableProps()} className="table-container">

@@ -3,7 +3,7 @@ import "../styles/table.css";
 
 export default function SadTeamsTable({ data }) {
   if (!data || data.length === 0) {
-    return <p>No use cases with no teams found.</p>;
+    return <p>No teams needing members found.</p>;
   }
 
   return (

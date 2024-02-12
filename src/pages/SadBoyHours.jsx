@@ -42,11 +42,11 @@ export default function SadBoyHours() {
         <div className="body">
           <div className="tables-container">
             <div className="left-side">
-              <h3>Use Cases with No Teams</h3>
+              <h3>Use Cases With No Teams</h3>
               <SadUseCasesTable data={noTeamUseCaseData} />
             </div>
             <div className="right-side">
-              <h3>Teams with No Use Cases</h3>
+              <h3>Teams That Need Members</h3>
               <SadTeamsTable data={noUseCaseTeamData} />
             </div>
           </div>

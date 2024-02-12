@@ -80,7 +80,7 @@ export default function JoinTeam() {
                 <input
                   onChange={handleChange}
                   name="skillsets"
-                  value={userData.skillset}
+                  value={userData.skillsets}
                 />
 
                 <button
