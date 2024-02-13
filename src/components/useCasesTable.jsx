@@ -70,25 +70,24 @@ export default function UseCasesTable({ data }) {
                       {data[rowIndex].classificationLevel}
                     </p>
                     <p>
-                      <strong>Preferred Skillsets:</strong>{" "}
-                      {data[rowIndex].desiredSkillsets?.toString() ?? "None"}
+                      <strong>POC's Name:</strong> {data[rowIndex].pocName}
+                    </p>
+                    <p>
+                      <strong>POC's Discord Name:</strong> {data[rowIndex].pocDiscordName}
+                    </p>
+                    <p>
+                      <strong>POC's Location:</strong> {data[rowIndex].location}
+                    </p>
+                    <p>
+                      <strong>Organization:</strong> {data[rowIndex].company}
                     </p>
                     <p>
                       <strong>Desired Deliverable:</strong>{" "}
                       {data[rowIndex].desiredDeliverable}
                     </p>
                     <p>
-                      <strong>Organization:</strong> {data[rowIndex].company}
-                    </p>
-                    <p>
-                      <strong>Location:</strong> {data[rowIndex].location}
-                    </p>
-                    <p>
-                      <strong>POC Name:</strong> {data[rowIndex].pocName}
-                    </p>
-                    <p>
-                      <strong>POC Discord Name:</strong>{" "}
-                      {data[rowIndex].pocDiscordName}
+                      <strong>Preferred Skillsets:</strong>{" "}
+                      {data[rowIndex].desiredSkillset?.toString() ?? "None"}
                     </p>
                     <p>
                       <strong>Data Supplied:</strong>{" "}

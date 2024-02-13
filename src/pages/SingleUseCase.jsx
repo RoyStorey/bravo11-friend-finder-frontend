@@ -15,7 +15,7 @@ export default function SingleUseCase() {
     company: "",
     desiredDeliverable: "",
     hasData: 0,
-    desiredSkillsets: [""],
+    desiredSkillset: [""],
     classificationLevel: "CUI",
     location: "",
     image: "",
@@ -129,7 +129,7 @@ export default function SingleUseCase() {
               <b>Preferred Skillsets:</b> {useCaseData.desiredSkillset?.toString() ?? "none"}
             </p>
             <p>
-              <b>Has data?</b> {useCaseData.hasData ? "Yes" : "No"}
+              <b>Data Supplied: </b> {useCaseData.hasData ? "Yes" : "No"}
             </p>
           </div>
           <button className="edit-team-button">
