@@ -22,7 +22,7 @@ title {
 
   h1 {
     &:hover {
-      color: $tb_text_white;
+      color: $tb_text_primary;
       cursor: pointer;
       text-shadow: 2px 2px 10px $tb_text_shadow_color;
     }
@@ -71,4 +71,13 @@ h1 {
 
 .hyperlink-icon {
   margin-right: 0.5rem;
+}
+
+a {
+  color: $tb_text_primary;
+  text-decoration: none;
+
+  &:hover {
+    color: $tb_yellow;
+  }
 }

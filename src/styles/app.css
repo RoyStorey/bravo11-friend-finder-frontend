@@ -2,13 +2,19 @@ body {
   margin: 0px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: rgba(0, 0, 0, 0.753);
-  background-color: #fafcff;
+  background-color: hsl(32, 33%, 100%);
 }
 
-a {
-  color: rgba(0, 0, 0, 0.753);
-  text-decoration: none;
+button {
+  background-color: hsl(32, 47%, 45%);
+  border: none;
+  color: rgba(255, 255, 255, 0.753);
+  border: 1px solid transparent;
+  border-radius: 2px;
 }
-a:hover {
-  color: #a7753c;
+button:hover {
+  color: hsl(32, 47%, 45%) !important;
+  background: hsl(32, 33%, 95%);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }/*# sourceMappingURL=app.css.map */

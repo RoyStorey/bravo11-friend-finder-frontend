@@ -12,7 +12,7 @@ title {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  color: #a7753c;
+  color: hsl(32, 47%, 45%);
   padding-inline: 4rem;
   padding-bottom: 2rem;
   justify-content: space-between;
@@ -39,7 +39,7 @@ h1 {
   gap: 5rem;
   flex: 1;
   padding-inline: 4rem;
-  background: #eff2fc;
+  background: hsl(32, 33%, 95%);
   padding-block: 1rem;
   border-block: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -65,4 +65,12 @@ h1 {
 
 .hyperlink-icon {
   margin-right: 0.5rem;
+}
+
+a {
+  color: rgba(0, 0, 0, 0.753);
+  text-decoration: none;
+}
+a:hover {
+  color: hsl(32, 47%, 45%);
 }/*# sourceMappingURL=header.css.map */

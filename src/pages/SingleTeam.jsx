@@ -1,6 +1,6 @@
 import Header from "../components/header.jsx";
 import Footer from "../components/footer.jsx";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../styles/singleTeam.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -24,6 +24,7 @@ export default function SingleTeam() {
   });
 
   let { teamId } = useParams(); //THIS IS CORRECT
+  const navigate = useNavigate();
 
   async function getTeam(teamId) {
     try {
@@ -196,11 +197,11 @@ export default function SingleTeam() {
             </p>
             <TeamMembersList teamId={teamId} />
           </div>
-          <button className="edit-team-button">
-            <a href={`/edit-team/${teamId}`}>Edit Team</a>
+          <button onClick={() => navigate(`/edit-team/${teamId}`)} className="edit-team-button">
+            Edit Team
           </button>
-          <button className="edit-team-button">
-            <a href={`/join-team/${teamId}`}>Join Team</a>
+          <button onClick={() => navigate(`/join-team/${teamId}`)} className="edit-team-button">
+            Join Team
           </button>
           <button
             className="edit-team-button"
@@ -212,7 +213,7 @@ export default function SingleTeam() {
           </button>
         </div>
         <Footer />
-      </div>
+      </div >
     </>
   );
 }

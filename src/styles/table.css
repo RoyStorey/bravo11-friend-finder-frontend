@@ -15,7 +15,7 @@ tr {
 .table-header {
   display: flex;
   justify-content: center;
-  color: #a7753c;
+  color: hsl(32, 47%, 45%);
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.001);
 }
 
@@ -32,7 +32,7 @@ td {
   height: 3rem;
 }
 .teams-table-row:hover {
-  background: #eff2fc;
+  background: hsl(32, 33%, 95%);
   cursor: pointer;
   border-inline: 1px solid rgba(0, 0, 0, 0.1);
 }

@@ -4,7 +4,7 @@
   display: flex;
   flex: 1;
   width: 30%;
-  background: #eff2fc;
+  background: hsl(32, 33%, 95%);
   height: 100%;
   padding: 4rem;
   color: rgba(0, 0, 0, 0.753);

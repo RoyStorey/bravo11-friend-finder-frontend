@@ -4,15 +4,23 @@ $font-family_1: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto
 body {
   margin: 0px;
   font-family: $font-family_1;
-  color: $tb_text_white;
+  color: $tb_text_primary;
   background-color: $tb_background_primary;
 }
 
-a {
-  color: $tb_text_white;
-  text-decoration: none;
+
+
+button {
+  background-color: $tb_yellow;
+  border: none;
+  color: $tb_text_secondary;
+  border: 1px solid transparent;
+  border-radius: 2px;
 
   &:hover {
-    color: $tb_yellow;
+    color: $tb_yellow !important;
+    background: $tb_background_secondary;
+    border: 1px solid $tb_border_color;
+    cursor: pointer;
   }
 }

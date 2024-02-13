@@ -1,6 +1,6 @@
 .home {
   min-height: 100dvh;
-  background-color: #fafcff;
+  background-color: hsl(32, 33%, 100%);
   display: flex;
   flex-direction: column;
   gap: 1rem;
