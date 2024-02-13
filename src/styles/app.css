@@ -5,6 +5,10 @@ body {
   background-color: hsl(32, 33%, 100%);
 }
 
+a {
+  cursor: pointer;
+}
+
 button {
   background-color: hsl(32, 47%, 45%);
   border: none;

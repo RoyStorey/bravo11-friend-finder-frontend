@@ -5,8 +5,10 @@ import "../styles/singleUseCase.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Pitch from "../components/pitch-container.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function SingleUseCase() {
+  const navigate = useNavigate()
   const [useCaseData, setUseCaseData] = useState({
     title: "",
     description: "",
@@ -133,7 +135,7 @@ export default function SingleUseCase() {
             </p>
           </div>
           <button className="edit-team-button">
-            <a href={`/edit-use-case/${useCaseId}`}>Edit Use Case</a>
+            <a onClick={() => navigate(`/edit-use-case/${useCaseId}`)}>Edit Use Case</a>
           </button>
           <button
             className="edit-team-button"

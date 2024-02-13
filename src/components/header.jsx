@@ -1,5 +1,6 @@
 import "../styles/header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 
 import {
   faPlus,
@@ -10,15 +11,17 @@ import {
   faList,
 } from "@fortawesome/free-solid-svg-icons";
 
+
+
 export default function Header() {
+  const navigate = useNavigate();
+
   return (
     <div className="header-container">
       <title>
         <div className="icon-container">
           <h1
-            onClick={() => {
-              window.location.href = "/";
-            }}
+            onClick={() => navigate(`/`)}
           >
             Bravo 11 Team Builder
           </h1>
@@ -27,26 +30,26 @@ export default function Header() {
       </title>
       <div className="hyperlinks">
         <div className="button-group">
-          <a href="/">
+          <a onClick={() => navigate(`/`)}>
             <FontAwesomeIcon icon={faUserGroup} className="hyperlink-icon" />
             Teams
           </a>
-          <a href="/use-cases">
+          <a onClick={() => navigate(`/use-cases`)}>
             <FontAwesomeIcon icon={faList} className="hyperlink-icon" />
             Use-Cases
           </a>
         </div>
-        <a href="/sad-boy-hours">
+        <a onClick={() => navigate(`/sad-boy-hours`)}>
           <FontAwesomeIcon icon={faSadCry} className="hyperlink-icon" />
           Help, I'm sad.
         </a>
 
         <div className="button-group">
-          <a href="/add-team">
+          <a onClick={() => navigate(`/add-team`)}>
             <FontAwesomeIcon icon={faPlus} />
             Add Team
           </a>
-          <a href="/add-use-case">
+          <a onClick={() => navigate(`/add-use-case`)}>
             <FontAwesomeIcon icon={faPlus} />
             Add Use Case
           </a>

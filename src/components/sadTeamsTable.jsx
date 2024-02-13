@@ -1,7 +1,10 @@
 import React from "react";
 import "../styles/table.css";
+import { useNavigate } from "react-router-dom";
 
 export default function SadTeamsTable({ data }) {
+  const navigate = useNavigate();
+
   if (!data || data.length === 0) {
     return <p>No teams needing members found.</p>;
   }
@@ -20,9 +23,7 @@ export default function SadTeamsTable({ data }) {
           <tr
             key={index}
             className="teams-table-row"
-            onClick={() => {
-              window.location.href = `/single-team/${useCase.id}`;
-            }}
+            onClick={() => navigate(`/single-team/${useCase.id}`)}
           >
             <td>{useCase.teamName}</td>
             <td>{useCase.classificationLevel}</td>

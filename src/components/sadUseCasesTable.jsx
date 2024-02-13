@@ -1,8 +1,10 @@
 import React from "react";
 import { useTable } from "react-table";
 import "../styles/table.css";
+import { useNavigate } from "react-router-dom";
 
 export default function SadUseCasesTable({ data }) {
+  const navigate = useNavigate();
 
 
   const columns = React.useMemo(
@@ -50,9 +52,7 @@ export default function SadUseCasesTable({ data }) {
           prepareRow(row);
           return (
             <tr
-              onClick={() => {
-                window.location.href = `/single-use-case/${row.original.id}`;
-              }}
+              onClick={() => navigate(`/single-use-case/${row.original.id}`)}
               {...row.getRowProps()}
               className="teams-table-row"
               key={i}

@@ -5,7 +5,6 @@ import "../styles/singleTeam.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Pitch from "../components/pitch-container.jsx";
-import ImageComponent from "../components/imageRenderer.jsx";
 
 export default function SingleTeam() {
   const [teamData, setTeamData] = useState({

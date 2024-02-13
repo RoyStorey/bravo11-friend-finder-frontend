@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useTable } from "react-table";
 import "../styles/table.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const columns = [
   {
@@ -11,6 +12,8 @@ const columns = [
 ];
 
 export default function UseCasesTable({ data }) {
+  const navigate = useNavigate()
+
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable({
       columns,
@@ -55,7 +58,7 @@ export default function UseCasesTable({ data }) {
                     <td {...cell.getCellProps()}>▼ {cell.render("Cell")}</td>
                   );
                 })}
-                <a href={`/single-use-case/${data[rowIndex].id}`}>
+                <a onClick={() => navigate(`/single-use-case/${data[rowIndex].id}`)}>
                   View Use Case
                 </a>
               </tr>
