@@ -105,28 +105,28 @@ export default function SingleUseCase() {
               <b>Use Case Description:</b> {useCaseData.description}
             </p>
             <p>
-              <b>Number of Members: {useCaseData.classificationLevel}</b>
+              <b>Use Case Classification Level: {useCaseData.classificationLevel}</b>
             </p>
             <p>
-              <b>Captain's Discord Name: </b>
-              {useCaseData.desiredSkillsets?.toString() ?? "none"}
+              <b>POC's Name:</b> {useCaseData.pocName}
             </p>
             <p>
-              <b>Git Repo URL: </b>
-              {useCaseData.desiredDeliverable}
+              <b>POC's Discord Name: </b>
+              {useCaseData.pocDiscordName}
             </p>
             <p>
-              <b>Location: </b>
+              <b>POC's Location:</b> {useCaseData.location}
+            </p>
+            <p>
+              <b>Organization: </b>
               {useCaseData.company}
             </p>
             <p>
-              <b>Preferred Time to Work:</b> {useCaseData.location}
+              <b>Desired Deliverable: </b>
+              {useCaseData.desiredDeliverable}
             </p>
             <p>
-              <b>Preferred Skillsets:</b> {useCaseData.pocName}
-            </p>
-            <p>
-              <b>Level of Classification:</b> {useCaseData.pocDiscordName}
+              <b>Preferred Skillsets:</b> {useCaseData.desiredSkillset?.toString() ?? "none"}
             </p>
             <p>
               <b>Has data?</b> {useCaseData.hasData ? "Yes" : "No"}
