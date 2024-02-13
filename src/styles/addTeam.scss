@@ -1,4 +1,4 @@
-$color_1: #e1c16e;
+@import 'variables';
 
 .form {
   display: flex;
@@ -17,7 +17,7 @@ input {
 }
 
 .form-header {
-  color: $color_1;
+  color: $tb_yellow;
 }
 
 .left-side-of-form {

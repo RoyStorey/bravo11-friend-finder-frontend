@@ -5,7 +5,7 @@
 }
 
 .team-name {
-  color: #e1c16e;
+  color: #a7753c;
   text-decoration: underline;
 }
 
@@ -31,11 +31,11 @@ h5 {
 }
 
 .edit-team-button {
-  color: black;
+  color: rgba(0, 0, 0, 0.753);
   margin-top: 1rem;
 }
 .edit-team-button a {
-  color: black;
+  color: rgba(0, 0, 0, 0.753);
 }
 
 li {

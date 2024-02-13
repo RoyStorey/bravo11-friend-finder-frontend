@@ -1,5 +1,4 @@
-$color_1: #e1c16e;
-$color_2: rgba(255, 255, 255, 0.8);
+@import 'variables';
 
 .body {
   display: flex;
@@ -8,7 +7,7 @@ $color_2: rgba(255, 255, 255, 0.8);
 }
 
 .use-case {
-  color: $color_1;
+  color: $tb_yellow;
   text-decoration: underline;
 }
 
@@ -20,14 +19,14 @@ $color_2: rgba(255, 255, 255, 0.8);
 
 .use-case-button {
   background: transparent;
-  color: $color_2;
+  color: $tb_text_white;
   border: none;
   height: min-content;
   padding: 1rem;
   outline: 1px solid rgba(255, 255, 255, 0.8);
 
   &:hover {
-    color: $color_1;
+    color: $tb_yellow;
     cursor: pointer;
   }
 }

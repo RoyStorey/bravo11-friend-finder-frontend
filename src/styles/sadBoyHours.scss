@@ -1,4 +1,4 @@
-$color_1: #e1c16e;
+@import 'variables';
 
 .tables-container {
   width: 100%;
@@ -7,7 +7,7 @@ $color_1: #e1c16e;
   gap: 1rem;
 
   h3 {
-    color: $color_1;
+    color: $tb_yellow;
   }
 }
 

@@ -5,7 +5,7 @@
 }
 
 .use-case {
-  color: #e1c16e;
+  color: #a7753c;
   text-decoration: underline;
 }
 
@@ -17,7 +17,7 @@
 
 .use-case-button {
   background: transparent;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.753);
   border: none;
   height: -moz-min-content;
   height: min-content;
@@ -25,6 +25,6 @@
   outline: 1px solid rgba(255, 255, 255, 0.8);
 }
 .use-case-button:hover {
-  color: #e1c16e;
+  color: #a7753c;
   cursor: pointer;
 }/*# sourceMappingURL=singleUseCase.css.map */

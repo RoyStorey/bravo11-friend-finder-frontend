@@ -1,5 +1,4 @@
-$color_1: #e1c16e;
-$color_2: rgba(255, 255, 255, 0.8);
+@import 'variables';
 
 .header-container {
   display: flex;
@@ -15,17 +14,17 @@ title {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  color: $color_1;
+  color: $tb_yellow;
   padding-inline: 4rem;
   padding-bottom: 2rem;
   justify-content: space-between;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+  text-shadow: 2px 2px 10px $tb_text_shadow_color;
 
   h1 {
     &:hover {
-      color: $color_2;
+      color: $tb_text_white;
       cursor: pointer;
-      text-shadow: 2px 2px 10px black;
+      text-shadow: 2px 2px 10px $tb_text_shadow_color;
     }
   }
 }
@@ -45,7 +44,7 @@ h1 {
   gap: 5rem;
   flex: 1;
   padding-inline: 4rem;
-  background: #121416;
+  background: $tb_background_secondary;
   padding-block: 1rem;
   border-block: 1px solid rgba(255, 255, 255, 0.05);
 

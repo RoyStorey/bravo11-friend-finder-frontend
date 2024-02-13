@@ -1,4 +1,4 @@
-$color_1: #e1c16e;
+@import 'variables';
 
 .table-container {
   height: min-content;
@@ -8,7 +8,7 @@ $color_1: #e1c16e;
 
 tr {
   min-height: 3rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid $tb_border_color;
   display: flex;
   align-items: center;
 }
@@ -16,8 +16,8 @@ tr {
 .table-header {
   display: flex;
   justify-content: center;
-  color: $color_1;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+  color: $tb_yellow;
+  text-shadow: 2px 2px 10px $tb_text_shadow_color;
 }
 
 td {
@@ -33,13 +33,13 @@ td {
   height: 3rem;
 
   &:hover {
-    background: #121416;
+    background: $tb_background_secondary;
     cursor: pointer;
-    border-inline: 1px solid rgba(255, 255, 255, 0.1);
+    border-inline: 1px solid $tb_border_color;
   }
 }
 
 .expanded-team-table-row {
   padding-inline: 2rem;
-  border-inline: 1px solid rgba(255, 255, 255, 0.1);
+  border-inline: 1px solid $tb_border_color;
 }

@@ -1,4 +1,4 @@
-$background-color_1: #171a1f78;
+@import 'variables';
 
 .footer-container {
   display: flex;
@@ -7,6 +7,6 @@ $background-color_1: #171a1f78;
   position: fixed;
   bottom: 0px;
   width: 100%;
-  background-color: $background-color_1;
+  background-color: $tb_footer_background_color;
   backdrop-filter: blur(10px);
 }

@@ -1,5 +1,4 @@
-$color_1: #e1c16e;
-$color_2: black;
+@import 'variables';
 
 .body {
   display: flex;
@@ -8,7 +7,7 @@ $color_2: black;
 }
 
 .team-name {
-  color: $color_1;
+  color: $tb_yellow;
   text-decoration: underline;
 }
 
@@ -36,11 +35,11 @@ h5 {
 }
 
 .edit-team-button {
-  color: $color_2;
+  color: $tb_text_white;
   margin-top: 1rem;
 
   a {
-    color: $color_2;
+    color: $tb_text_white;
   }
 }
 
