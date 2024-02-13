@@ -1,3 +1,6 @@
+$color_1: #e1c16e;
+$color_2: black;
+
 .body {
   display: flex;
   flex-direction: column;
@@ -5,7 +8,7 @@
 }
 
 .team-name {
-  color: #e1c16e;
+  color: $color_1;
   text-decoration: underline;
 }
 
@@ -14,12 +17,14 @@
   flex-direction: column;
   gap: 1rem;
   margin: 0px;
-}
-.single-team-container > p {
-  margin: 0px;
-}
-.single-team-container > h1 {
-  margin: 0px;
+
+  >p {
+    margin: 0px;
+  }
+
+  >h1 {
+    margin: 0px;
+  }
 }
 
 a {
@@ -31,11 +36,12 @@ h5 {
 }
 
 .edit-team-button {
-  color: black;
+  color: $color_2;
   margin-top: 1rem;
-}
-.edit-team-button a {
-  color: black;
+
+  a {
+    color: $color_2;
+  }
 }
 
 li {
@@ -47,17 +53,18 @@ li {
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-}
-.team-member button {
-  height: -moz-min-content;
-  height: min-content;
-}
-.team-member p {
-  margin: 0px;
+
+  button {
+    height: min-content;
+  }
+
+  p {
+    margin: 0px;
+  }
 }
 
 .member-name {
   display: flex;
   flex-direction: row;
   gap: 2rem;
-}/*# sourceMappingURL=singleTeam.css.map */
+}

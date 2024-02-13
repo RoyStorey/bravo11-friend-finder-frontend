@@ -1,3 +1,6 @@
+$color_1: #e1c16e;
+$color_2: rgba(255, 255, 255, 0.8);
+
 .header-container {
   display: flex;
   align-items: left;
@@ -12,16 +15,19 @@ title {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  color: #e1c16e;
+  color: $color_1;
   padding-inline: 4rem;
   padding-bottom: 2rem;
   justify-content: space-between;
   text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
-}
-title h1:hover {
-  color: rgba(255, 255, 255, 0.8);
-  cursor: pointer;
-  text-shadow: 2px 2px 10px black;
+
+  h1 {
+    &:hover {
+      color: $color_2;
+      cursor: pointer;
+      text-shadow: 2px 2px 10px black;
+    }
+  }
 }
 
 h1 {
@@ -42,12 +48,13 @@ h1 {
   background: #121416;
   padding-block: 1rem;
   border-block: 1px solid rgba(255, 255, 255, 0.05);
-}
-.hyperlinks a {
-  display: flex;
-  gap: 2px;
-  align-items: center;
-  justify-content: center;
+
+  a {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .button-group {
@@ -65,4 +72,4 @@ h1 {
 
 .hyperlink-icon {
   margin-right: 0.5rem;
-}/*# sourceMappingURL=header.css.map */
+}

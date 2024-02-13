@@ -1,3 +1,5 @@
+$color_1: rgba(255, 255, 255, 0.9);
+
 .pitch-container {
   position: fixed;
   left: 0px;
@@ -7,7 +9,7 @@
   background: #121416;
   height: 100%;
   padding: 4rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: $color_1;
   box-sizing: border-box;
 }
 
@@ -21,4 +23,4 @@
 
 .pitch-text {
   text-indent: 1rem;
-}/*# sourceMappingURL=pitch.css.map */
+}

@@ -1,3 +1,5 @@
+$color_1: #e1c16e;
+
 .form {
   display: flex;
   flex-direction: column;
@@ -15,7 +17,7 @@ input {
 }
 
 .form-header {
-  color: #e1c16e;
+  color: $color_1;
 }
 
 .left-side-of-form {
@@ -28,4 +30,4 @@ input {
   justify-content: center;
   align-items: center;
   flex: 1;
-}/*# sourceMappingURL=addTeam.css.map */
+}

@@ -1,13 +1,8 @@
+$color_1: #e1c16e;
+
 .form {
   display: flex;
   flex-direction: column;
-  width: 100%;
-}
-
-.form-container {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
 }
 
 input {
@@ -15,12 +10,17 @@ input {
 }
 
 .form-header {
-  color: #e1c16e;
+  color: $color_1;
 }
 
-.left-side-of-form {
+select {
+  margin-bottom: 1rem;
+}
+
+.upload-container {
   display: flex;
-  flex: 1;
+  flex-direction: column;
+  align-items: center;
 }
 
 .right-side-of-form {
@@ -28,4 +28,4 @@ input {
   justify-content: center;
   align-items: center;
   flex: 1;
-}/*# sourceMappingURL=addTeam.css.map */
+}

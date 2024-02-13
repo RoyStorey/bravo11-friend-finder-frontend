@@ -1,0 +1,12 @@
+$background-color_1: #171a1f78;
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: $background-color_1;
+  backdrop-filter: blur(10px);
+}

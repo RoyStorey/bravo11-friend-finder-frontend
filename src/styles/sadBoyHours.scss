@@ -1,11 +1,14 @@
+$color_1: #e1c16e;
+
 .tables-container {
   width: 100%;
   display: flex;
   flex-direction: row;
   gap: 1rem;
-}
-.tables-container h3 {
-  color: #e1c16e;
+
+  h3 {
+    color: $color_1;
+  }
 }
 
 .left-side {
@@ -13,10 +16,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.left-side th {
-  width: 50%;
-  text-align: left;
+
+  th {
+    width: 50%;
+    text-align: left;
+  }
 }
 
 td {
@@ -29,12 +33,14 @@ td {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  th {
+    width: 30%;
+    text-align: left;
+  }
+
+  td {
+    width: 30%;
+    text-align: left;
+  }
 }
-.right-side th {
-  width: 30%;
-  text-align: left;
-}
-.right-side td {
-  width: 30%;
-  text-align: left;
-}/*# sourceMappingURL=sadBoyHours.css.map */

@@ -24,6 +24,7 @@ export default function SadUseCasesTable({ data }) {
       columns,
       data,
     });
+
   if (!data || data.length === 0) {
     return <p>No use cases with no teams found.</p>;
   }
