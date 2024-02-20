@@ -20,7 +20,6 @@ export default function SingleTeam() {
     preferredTimeToWork: "",
     classificationLevel: "",
     preferredSkillsets: [""],
-    image: "",
   });
 
   let { teamId } = useParams(); //THIS IS CORRECT

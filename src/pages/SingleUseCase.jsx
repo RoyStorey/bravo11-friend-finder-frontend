@@ -70,15 +70,32 @@ export default function SingleUseCase() {
     }
   }
 
-  function handleUseCaseDelete(useCaseId) {
-    if (window.confirm("Are you sure you would like to delete this team?")) {
-      try {
-        axios.post("http://localhost:3000/removeUseCase", {
+  function handleUseCaseDelete(useCaseId, useCaseName) {
+    let otpCheck = window.prompt("Enter your use-case PIN:");
+
+    if (window.confirm("Are you sure you would like to delete this use-case?")) {
+      axios
+        .post("http://localhost:3000/removeUseCase", {
           id: useCaseId,
+          useCaseCode: otpCheck,
+          title: useCaseName,
+        })
+        .then((response) => {
+          if (response.status === 200) {
+            window.alert("Use-Case deleted successfully.");
+            window.location.href = "/use-cases/";
+          } else {
+            window.alert("Failed to delete use-case. Please try again.");
+          }
+        })
+        .catch((error) => {
+          if (error.response && error.response.status === 403) {
+            window.alert("Incorrect use-case PIN. Please try again.");
+          } else {
+            console.error("Error deleting use-case:", error);
+            window.alert("An error occurred while deleting the use-cse.");
+          }
         });
-      } catch (error) {
-        console.error(error);
-      }
     }
   }
 
