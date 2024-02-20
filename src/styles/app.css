@@ -21,4 +21,17 @@ button:hover {
   background: hsl(32, 33%, 95%);
   border: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
+}
+
+.skill-pill {
+  background-color: hsl(32, 47%, 45%);
+  border-radius: 6px;
+  padding: 3px 12px;
+  height: -moz-min-content;
+  height: min-content;
+  color: rgba(255, 255, 255, 0.753);
+}
+.skill-pill p {
+  color: rgba(255, 255, 255, 0.753);
+  margin: 0px;
 }/*# sourceMappingURL=app.css.map */

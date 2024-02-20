@@ -28,3 +28,16 @@ button {
     cursor: pointer;
   }
 }
+.skill-pill{
+  background-color:$tb_yellow;
+  border-radius:6px;
+  padding:3px 12px;
+  height:min-content;
+  color:$tb_text_secondary;
+  // flex:0 0 21%;
+
+  p{
+    color:$tb_text_secondary;
+    margin:0px;
+  }
+}

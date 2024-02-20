@@ -117,6 +117,7 @@ export default function SingleTeam() {
             `http://localhost:3000/getMembersByTeam/${teamId}`
           );
           setTeamMembers(response.data);
+          console.log(response.data)
         } catch (error) {
           console.error(error);
         }
@@ -130,19 +131,33 @@ export default function SingleTeam() {
         <h2>Team Members</h2>
         <ol>
           {teamMembers.map((member, index) => (
+
+
             <div className="team-member">
-              <li key={index}>
-                <b>Name: </b>
-                {member.name}
-              </li>
-              <p>
+
+
+              <div className="team-data-column">
+                <li key={index}>
+                  <b>{`${index}. Name: `}</b>
+                  {`${member.name}`}
+                </li>
+              </div>
+
+              <div className="team-data-column">
                 <b>Discord Name: </b>
                 {member.discordName}
-              </p>
-              <p>
-                <b>Skillset: </b>
-                {member.skillsets}
-              </p>
+              </div>
+
+              <div className="team-data-column">
+                <b>Skills: </b>
+                <div className="skills-container">
+                  {member.skillsets?.split(',').map((skill,i)=>{
+                    return <div className="skill-pill" key={i}><p>{skill}</p></div>
+                  })}
+                </div>
+              </div>
+
+
               <button
                 onClick={() => {
                   handleMemberDelete(teamId, member.id);

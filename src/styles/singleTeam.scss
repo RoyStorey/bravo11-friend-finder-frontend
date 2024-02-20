@@ -50,7 +50,8 @@ li {
 .team-member {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  // justify-content: space-between;
+  min-height:3rem;
   width: 100%;
 
   button {
@@ -66,4 +67,16 @@ li {
   display: flex;
   flex-direction: row;
   gap: 2rem;
+}
+.team-data-column{
+  display:flex;
+  width:25%;
+  overflow-y: scroll;
+}
+.skills-container{
+  display:flex;
+  gap:1rem;
+  padding-inline:1rem;
+  box-sizing: border-box;
+  flex-wrap:wrap;
 }
