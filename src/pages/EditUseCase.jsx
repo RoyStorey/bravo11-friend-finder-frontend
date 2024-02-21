@@ -66,11 +66,11 @@ export default function EditUseCase() {
       <div className="home">
         <Header />
         <div className="body">
-          <h1 className="form-header">Edit Use Case {formData.title}</h1>
+          <h1 className="form-header">Edit Task {formData.title}</h1>
           <div className="form-container">
             <div className="left-side-of-form">
               <div className="form">
-                <label>Use Case Name</label>
+                <label>Task Name</label>
                 <input
                   type="text"
                   name="title"

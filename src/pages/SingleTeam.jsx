@@ -185,7 +185,7 @@ export default function SingleTeam() {
             <h1 className="team-name">{teamData.teamName}</h1>
             <h5>Team ID: {teamData.id}</h5>
             <p>
-              <b>Use Case:</b> {teamData.useCase}
+              <b>Task:</b> {teamData.useCase}
             </p>
             <p>
               <b>Captain's Discord Name: </b>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useTable } from "react-table";
 import "../styles/table.css";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const columns = [
@@ -70,7 +69,7 @@ export default function UseCasesTable({ data }) {
                       <strong>Team Name:</strong> {data[rowIndex].teamName}
                     </p>
                     <p>
-                      <strong>Use Case:</strong> {data[rowIndex].useCase}
+                      <strong>Task:</strong> {data[rowIndex].useCase}
                     </p>
                     <p>
                       <strong>Team Captain Discord Name:</strong>{" "}

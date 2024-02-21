@@ -102,12 +102,12 @@ export default function SingleUseCase() {
                 Add as team's use-case
               </button>
             </div>
-            <h5>Use Case ID: {useCaseData.id}</h5>
+            <h5>Task ID: {useCaseData.id}</h5>
             <p>
-              <b>Use Case Description:</b> {useCaseData.description}
+              <b>Task Description:</b> {useCaseData.description}
             </p>
             <p>
-              <b>Use Case Classification Level: {useCaseData.classificationLevel}</b>
+              <b>Task Classification Level: {useCaseData.classificationLevel}</b>
             </p>
             <p>
               <b>POC's Name:</b> {useCaseData.pocName}
@@ -135,7 +135,7 @@ export default function SingleUseCase() {
             </p>
           </div>
           <button className="edit-team-button">
-            <a onClick={() => navigate(`/edit-use-case/${useCaseId}`)}>Edit Use Case</a>
+            <a onClick={() => navigate(`/edit-use-case/${useCaseId}`)}>Edit Task</a>
           </button>
           <button
             className="edit-team-button"
@@ -143,7 +143,7 @@ export default function SingleUseCase() {
               handleUseCaseDelete(useCaseId);
             }}
           >
-            Delete Use Case
+            Delete Task
           </button>
         </div>
         <Footer />

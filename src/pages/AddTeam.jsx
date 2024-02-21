@@ -118,7 +118,7 @@ export default function AddTeam() {
                   onChange={handleChange}
                 />
 
-                <label>Use Case</label>
+                <label>Task</label>
                 <input
                   type="text"
                   name="useCase"

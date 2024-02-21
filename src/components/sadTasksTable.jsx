@@ -3,7 +3,7 @@ import { useTable } from "react-table";
 import "../styles/table.css";
 import { useNavigate } from "react-router-dom";
 
-export default function SadUseCasesTable({ data }) {
+export default function SadTasksTable({ data }) {
   const navigate = useNavigate();
 
 

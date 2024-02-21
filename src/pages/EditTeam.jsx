@@ -89,7 +89,7 @@ export default function EditTeam() {
                   placeholder={oldFormData.teamName}
                 />
 
-                <label>Use Case</label>
+                <label>Task</label>
                 <input
                   type="text"
                   name="useCase"

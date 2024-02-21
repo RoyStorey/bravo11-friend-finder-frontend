@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const columns = [
   {
-    Header: "List of Bravo 11 Use Cases",
+    Header: "List of Bravo 11 Tasks",
     accessor: "title",
   },
 ];
@@ -59,7 +59,7 @@ export default function UseCasesTable({ data }) {
                   );
                 })}
                 <a onClick={() => navigate(`/single-use-case/${data[rowIndex].id}`)}>
-                  View Use Case
+                  View Task
                 </a>
               </tr>
               {expandedRows.includes(rowIndex) && (

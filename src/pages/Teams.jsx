@@ -8,6 +8,7 @@ import axios from "axios";
 
 export default function Teams() {
   const [teamsData, setTeamsData] = useState([]);
+  let isDataPopulated=false;
 
   async function getTeams() {
     return axios
@@ -17,11 +18,23 @@ export default function Teams() {
   }
 
   useEffect(() => {
+    try{
     getTeams().then((data) => {
       setTeamsData(data);
       console.log(data, "test");
+      isDataPopulated = true;
     });
+    }catch{
+      console.log('No data found.')
+    }
   }, []);
+
+  function TeamsTableConditional({data,isDataPopulated}){
+    if(isDataPopulated){
+      return <TeamsTable data={data} />
+    }
+    return <h5>No team data found...</h5>
+  }
 
   return (
     <>
@@ -29,7 +42,7 @@ export default function Teams() {
       <div className="home">
         <Header />
         <div className="body">
-          <TeamsTable data={teamsData} />
+          <TeamsTableConditional data={teamsData} isDataPopulated={isDataPopulated} />
         </div>
         <Footer />
       </div>

@@ -36,7 +36,7 @@ export default function Header() {
           </a>
           <a onClick={() => navigate(`/use-cases`)}>
             <FontAwesomeIcon icon={faList} className="hyperlink-icon" />
-            Use-Cases
+            Tasks
           </a>
         </div>
         <a onClick={() => navigate(`/sad-boy-hours`)}>
@@ -51,7 +51,7 @@ export default function Header() {
           </a>
           <a onClick={() => navigate(`/add-use-case`)}>
             <FontAwesomeIcon icon={faPlus} />
-            Add Use Case
+            Add Task
           </a>
         </div>
       </div>

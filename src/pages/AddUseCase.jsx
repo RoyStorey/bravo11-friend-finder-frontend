@@ -35,7 +35,7 @@ export default function AddUseCase() {
   const handleSubmit = async () => {
     try {
       const response = await postNewUseCase(formData);
-      window.alert("Use Case successfully created!");
+      window.alert("Task successfully created!");
       window.location.href = "/use-cases/";
       console.log(response); // Log the response or handle it as needed
     } catch (error) {
@@ -71,7 +71,7 @@ export default function AddUseCase() {
 
     return (
       <div className="upload-container">
-        <h4>Upload Photo of Use Case POC</h4>
+        <h4>Upload Photo of Task POC</h4>
         <div>
           <input
             type="file"
@@ -90,11 +90,11 @@ export default function AddUseCase() {
       <div className="home">
         <Header />
         <div className="body">
-          <h1 className="form-header">Add Use Case</h1>
+          <h1 className="form-header">Add Task</h1>
           <div className="form-container">
             <div className="left-side-of-form">
               <div className="form">
-                <label>Use Case Name</label>
+                <label>Task Name</label>
                 <input
                   type="text"
                   name="title"
@@ -176,7 +176,7 @@ export default function AddUseCase() {
                   <option value={0}>No</option>
                 </select>
 
-                <button onClick={handleSubmit}>Create Use Case</button>
+                <button onClick={handleSubmit}>Create Task</button>
               </div>
             </div>
             <div className="right-side-of-form">

@@ -25,6 +25,7 @@ import Pitch from "../components/pitch-container.jsx";
 
 export default function UseCases() {
   const [useCasesData, setUseCasesData] = useState([]);
+  let isDataPopulated = false;
 
   async function getUseCases() {
     return axios
@@ -34,11 +35,22 @@ export default function UseCases() {
   }
 
   useEffect(() => {
+    try{
     getUseCases().then((data) => {
       setUseCasesData(data);
       console.log(data, "test");
     });
+  }catch{
+    console.log('No data found...')
+  }
   }, []);
+
+  function UseCasesTableConditional({data,isDataPopulated}){
+    if(isDataPopulated){
+      return <UseCasesTable data={data} />
+    }
+    return <h5>No task data found...</h5>
+  }
 
   return (
     <>
@@ -46,7 +58,7 @@ export default function UseCases() {
       <div className="home">
         <Header />
         <div className="body">
-          <UseCasesTable data={useCasesData} />
+          <UseCasesTableConditional data={useCasesData} isDataPopulated={isDataPopulated} />
         </div>
         <Footer />
       </div>
