@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/header.jsx";
 import Footer from "../components/footer.jsx";
-import UseCasesTable from "../components/useCasesTable.jsx";
+import TasksTable from "../components/tasksTable.jsx";
 import "../styles/home.css";
 import axios from "axios";
 import Pitch from "../components/pitch-container.jsx";
@@ -11,7 +11,7 @@ import Pitch from "../components/pitch-container.jsx";
 //     id: 1,
 //     title: "Avionics Data Cleaning for INDOPACOM",
 //     description:
-//       "The Avionics Data Cleaning use-case for INDOPACOM involves the process of collecting, processing, and refining avionics data from various aircraft and sources within the Indo-Pacific Command (INDOPACOM) region. This critical task ensures that the avionics data is accurate, reliable, and ready for analysis and decision-making.",
+//       "The Avionics Data Cleaning task for INDOPACOM involves the process of collecting, processing, and refining avionics data from various aircraft and sources within the Indo-Pacific Command (INDOPACOM) region. This critical task ensures that the avionics data is accurate, reliable, and ready for analysis and decision-making.",
 //     classificationLevel: "Secret",
 //     desiredSkillsets: ["ui/ux developer", "data scientist"],
 //     desiredDeliverable: "Application that cleans data",
@@ -23,21 +23,21 @@ import Pitch from "../components/pitch-container.jsx";
 //   },
 // ];
 
-export default function UseCases() {
-  const [useCasesData, setUseCasesData] = useState([]);
+export default function Tasks() {
+  const [tasksData, setTasksData] = useState([]);
   let isDataPopulated = false;
 
-  async function getUseCases() {
+  async function getTasks() {
     return axios
-      .get(`http://localhost:3000/getUseCases`)
+      .get(`http://localhost:3000/tasks`)
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }
 
   useEffect(() => {
     try{
-    getUseCases().then((data) => {
-      setUseCasesData(data);
+    getTasks().then((data) => {
+      setTasksData(data);
       console.log(data, "test");
     });
   }catch{
@@ -45,9 +45,9 @@ export default function UseCases() {
   }
   }, []);
 
-  function UseCasesTableConditional({data,isDataPopulated}){
+  function TasksTableConditional({data,isDataPopulated}){
     if(isDataPopulated){
-      return <UseCasesTable data={data} />
+      return <TasksTable data={data} />
     }
     return <h5>No task data found...</h5>
   }
@@ -58,7 +58,7 @@ export default function UseCases() {
       <div className="home">
         <Header />
         <div className="body">
-          <UseCasesTableConditional data={useCasesData} isDataPopulated={isDataPopulated} />
+          <TasksTableConditional data={tasksData} isDataPopulated={isDataPopulated} />
         </div>
         <Footer />
       </div>

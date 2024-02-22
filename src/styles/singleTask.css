@@ -4,18 +4,18 @@
   justify-content: flex-start;
 }
 
-.use-case {
+.task {
   color: hsl(32, 47%, 45%);
   text-decoration: underline;
 }
 
-.use-case-header {
+.task-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.use-case-button {
+.task-button {
   background: transparent;
   color: rgba(0, 0, 0, 0.753);
   border: none;
@@ -24,7 +24,7 @@
   padding: 1rem;
   outline: 1px solid rgba(255, 255, 255, 0.8);
 }
-.use-case-button:hover {
+.task-button:hover {
   color: hsl(32, 47%, 45%);
   cursor: pointer;
-}/*# sourceMappingURL=singleUseCase.css.map */
+}/*# sourceMappingURL=singleTask.css.map */

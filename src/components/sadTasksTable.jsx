@@ -52,7 +52,7 @@ export default function SadTasksTable({ data }) {
           prepareRow(row);
           return (
             <tr
-              onClick={() => navigate(`/single-use-case/${row.original.id}`)}
+              onClick={() => navigate(`/single-task/${row.original.id}`)}
               {...row.getRowProps()}
               className="teams-table-row"
               key={i}

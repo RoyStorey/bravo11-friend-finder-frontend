@@ -18,7 +18,7 @@ export default function Pitch() {
           and wishing that there was an easy way to find the team that was
           tackling one of the interesting problems. We decided that somebody
           oughts to make a web-app where they can join a team that has a
-          use-case and be able to find them easily.
+          task and be able to find them easily.
         </p>
         <p>We made this app.</p>
         <p>...and so did another team.</p>

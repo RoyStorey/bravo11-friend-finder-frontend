@@ -28,7 +28,7 @@ export default function SingleTeam() {
   async function getTeam(teamId) {
     try {
       const response = await axios.get(
-        `http://localhost:3000/getTeam/${teamId}`
+        `http://localhost:3000/teams/${teamId}`
       );
       return response.data;
     } catch (error) {
@@ -55,15 +55,13 @@ export default function SingleTeam() {
 
     if (window.confirm("Are you sure you would like to delete this team?")) {
       axios
-        .post("http://localhost:3000/removeTeam", {
-          id: teamId,
+        .post(`http://localhost:3000/teams/delete/${teamId}`, {
           captainCode: otpCheck,
-          teamName: teamName,
         })
         .then((response) => {
           if (response.status === 200) {
             window.alert("Team deleted successfully.");
-            window.location.href = "/use-cases/";
+            window.location.href = "/tasks/";
           } else {
             window.alert("Failed to delete team. Please try again.");
           }
@@ -85,9 +83,7 @@ export default function SingleTeam() {
     if (window.confirm("Are you sure you would like to delete this user?")) {
       try {
         axios
-          .post("http://localhost:3000/removeMember", {
-            teamId: teamId,
-            memberId: memberId,
+          .post(`http://localhost:3000/members/${memberId}`, {
             captainCode: otpCheck,
           })
           .then((response) => {
@@ -114,9 +110,9 @@ export default function SingleTeam() {
       async function fetchTeamMembers() {
         try {
           const response = await axios.get(
-            `http://localhost:3000/getMembersByTeam/${teamId}`
+            `http://localhost:3000/teams/${teamId}`
           );
-          setTeamMembers(response.data);
+          setTeamMembers(response.data.members);
           console.log(response.data)
         } catch (error) {
           console.error(error);

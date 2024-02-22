@@ -6,24 +6,24 @@ import axios from "axios";
 import Pitch from "../components/pitch-container.jsx";
 import { useParams } from "react-router-dom";
 
-export default function EditUseCase() {
-  let { useCaseId } = useParams();
+export default function EditTask() {
+  let { taskId } = useParams();
 
   const [formData, setFormData] = useState({});
   const [oldFormData, setOldFormData] = useState({});
-  async function getUseCase(useCaseId) {
+  async function getTask(taskId) {
     return axios
-      .get(`http://localhost:3000/getUseCase/${useCaseId}`)
+      .get(`http://localhost:3000/tasks/${taskId}`)
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }
   useEffect(() => {
-    getUseCase(useCaseId)
+    getTask(taskId)
       .then((data) => {
         setOldFormData(data[0]); // Update state with the received data
       })
       .catch((error) => {
-        console.error("Error fetching useCase data:", error);
+        console.error("Error fetching task data:", error);
         // Handle error if necessary
       });
   }, []);
@@ -31,12 +31,11 @@ export default function EditUseCase() {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-  async function updateUseCase(useCaseId, formData, otp) {
+  async function updateTask(taskId, formData, otp) {
     try {
-      const response = await axios.post("http://localhost:3000/updateUseCase", {
+      const response = await axios.post(`http://localhost:3000/tasks/${taskId}`, {
         ...formData,
-        id: useCaseId,
-        useCaseCode: otp,
+        taskCode: otp,
       });
       return response.data;
     } catch (error) {
@@ -46,16 +45,16 @@ export default function EditUseCase() {
   }
 
   const handleSubmit = async () => {
-    let otpCheck = window.prompt("Supply your use case PIN:");
+    let otpCheck = window.prompt("Supply your task PIN:");
     try {
-      await updateUseCase(useCaseId, formData, otpCheck);
-      window.alert("Use case updated successfully!");
+      await updateTask(taskId, formData, otpCheck);
+      window.alert("Task updated successfully!");
     } catch (error) {
       if (error.response && error.response.status === 403) {
-        window.alert("Incorrect use case PIN. Please try again.");
+        window.alert("Incorrect task PIN. Please try again.");
       } else {
-        console.error("Error updating use case:", error);
-        window.alert("Failed to update use case. Please try again.");
+        console.error("Error updating task:", error);
+        window.alert("Failed to update task. Please try again.");
       }
     }
   };

@@ -7,7 +7,7 @@ import Pitch from "../components/pitch-container.jsx";
 
 async function postNewTeam(teamObject) {
   return axios
-    .post(`http://localhost:3000/addTeam`, teamObject)
+    .post(`http://localhost:3000/teams/`, teamObject)
     .then((response) => response.data)
     .catch((error) => console.error(error));
 }
@@ -27,18 +27,17 @@ function makeid(length) {
 
 export default function AddTeam() {
   const [formData, setFormData] = useState({
-    teamName: "",
-    useCase: "",
-    captainName: "",
-    captainSkillset: "",
-    captainDiscordName: "",
-    captainCode: OTP,
-    gitRepoUrl: "",
+    name: "",
+    gitRepo: "",
     location: "",
-    preferredTimeToWork: "",
+    preferredWorkTime: "",
     classificationLevel: "CUI",
     preferredSkillsets: "",
-    image: "",
+    captain:{
+      name:"",
+      discordName:"",
+      skillsets:"",
+    },
   });
 
   const handleChange = (event) => {
@@ -114,15 +113,7 @@ export default function AddTeam() {
                 <input
                   type="text"
                   name="teamName"
-                  value={formData.teamName}
-                  onChange={handleChange}
-                />
-
-                <label>Task</label>
-                <input
-                  type="text"
-                  name="useCase"
-                  value={formData.useCase}
+                  value={formData.name}
                   onChange={handleChange}
                 />
 
@@ -130,7 +121,7 @@ export default function AddTeam() {
                 <input
                   type="text"
                   name="gitRepoUrl"
-                  value={formData.gitRepoUrl}
+                  value={formData.gitRepo}
                   onChange={handleChange}
                 />
 
@@ -146,7 +137,7 @@ export default function AddTeam() {
                 <input
                   type="text"
                   name="preferredTimeToWork"
-                  value={formData.preferredTimeToWork}
+                  value={formData.preferredWorkTime}
                   onChange={handleChange}
                 />
 
@@ -172,21 +163,21 @@ export default function AddTeam() {
                 <input
                   type="text"
                   name="captainName"
-                  value={formData.captainName}
+                  value={formData.captain.name}
                   onChange={handleChange}
                 />
                 <label>Captain's Discord Name</label>
                 <input
                   type="text"
                   name="captainDiscordName"
-                  value={formData.captainDiscordName}
+                  value={formData.captain.discordName}
                   onChange={handleChange}
                 />
                 <label>Captain's Skillset (comma delimited)</label>
                 <input
                   type="text"
                   name="captainSkillset"
-                  value={formData.captainSkillset}
+                  value={formData.captain.skillsets}
                   onChange={handleChange}
                 />
 

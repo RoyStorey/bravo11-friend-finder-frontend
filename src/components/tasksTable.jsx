@@ -11,7 +11,7 @@ const columns = [
   },
 ];
 
-export default function UseCasesTable({ data }) {
+export default function TasksTable({ data }) {
   const navigate = useNavigate()
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
@@ -58,7 +58,7 @@ export default function UseCasesTable({ data }) {
                     <td {...cell.getCellProps()}>▼ {cell.render("Cell")}</td>
                   );
                 })}
-                <a onClick={() => navigate(`/single-use-case/${data[rowIndex].id}`)}>
+                <a onClick={() => navigate(`/single-task/${data[rowIndex].id}`)}>
                   View Task
                 </a>
               </tr>

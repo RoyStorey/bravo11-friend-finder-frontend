@@ -34,7 +34,7 @@ export default function Header() {
             <FontAwesomeIcon icon={faUserGroup} className="hyperlink-icon" />
             Teams
           </a>
-          <a onClick={() => navigate(`/use-cases`)}>
+          <a onClick={() => navigate(`/tasks`)}>
             <FontAwesomeIcon icon={faList} className="hyperlink-icon" />
             Tasks
           </a>
@@ -49,7 +49,7 @@ export default function Header() {
             <FontAwesomeIcon icon={faPlus} />
             Add Team
           </a>
-          <a onClick={() => navigate(`/add-use-case`)}>
+          <a onClick={() => navigate(`/add-task`)}>
             <FontAwesomeIcon icon={faPlus} />
             Add Task
           </a>

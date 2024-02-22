@@ -1,15 +1,15 @@
 import Header from "../components/header.jsx";
 import Footer from "../components/footer.jsx";
 import { useParams } from "react-router-dom";
-import "../styles/singleUseCase.css";
+import "../styles/singleTask.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Pitch from "../components/pitch-container.jsx";
 import { useNavigate } from "react-router-dom";
 
-export default function SingleUseCase() {
+export default function SingleTask() {
   const navigate = useNavigate()
-  const [useCaseData, setUseCaseData] = useState({
+  const [taskData, setTaskData] = useState({
     title: "",
     description: "",
     pocName: "",
@@ -22,19 +22,19 @@ export default function SingleUseCase() {
     location: "",
     image: "",
   });
-  let { useCaseId } = useParams();
+  let { taskId } = useParams();
 
-  async function getUseCase(useCaseId) {
+  async function getTask(taskId) {
     return axios
-      .get(`http://localhost:3000/getUseCase/${useCaseId}`)
+      .get(`http://localhost:3000/tasks/${taskId}`)
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }
 
   useEffect(() => {
-    getUseCase(useCaseId)
+    getTask(taskId)
       .then((data) => {
-        setUseCaseData(data[0]); // Update state with the received data
+        setTaskData(data[0]); // Update state with the received data
       })
       .catch((error) => {
         console.error("Error fetching team data:", error);
@@ -43,23 +43,24 @@ export default function SingleUseCase() {
   }, []);
   //Correctly querying
 
-  function handleAddAsTeamsUseCase(useCaseName) {
+  function handleAddAsTeamsTask(taskId) {
     let yesNoCheck = window.confirm(
-      "Are you sure that you want to add this as your team's use-case? Your team can only have ONE use-case, so if you add this as your use-case, then any prior use-case will be overwritten."
+      "Are you sure that you want to add this as your team's task? Your team can only have ONE task, so if you add this as your task, then any prior task will be overwritten."
     );
 
     if (yesNoCheck) {
+      let teamName = window.prompt("Please enter your team name:")
       let otpCheck = window.prompt("Please enter your team-captain PIN:");
 
       return axios
-        .post(`http://localhost:3000/addTeamToUseCase`, {
+        .post(`http://localhost:3000/tasks/${taskId}/join`, {
           captainCode: otpCheck,
-          useCaseTitle: useCaseName,
+          team_name:teamName
         })
         .then((response) => {
           if (response.status === 200) {
             window.alert("Team's use case added successfully!");
-            window.location.href = "/use-cases/";
+            window.location.href = "/tasks/";
           } else {
             window.alert("Failed to add team's use case. Please try again.");
           }
@@ -72,11 +73,12 @@ export default function SingleUseCase() {
     }
   }
 
-  function handleUseCaseDelete(useCaseId) {
+  function handleTaskDelete(taskId) {
     if (window.confirm("Are you sure you would like to delete this team?")) {
+      let taskCode = window.prompt("Enter your TASK CODE to delete this task.")
       try {
-        axios.post("http://localhost:3000/removeUseCase", {
-          id: useCaseId,
+        axios.post(`http://localhost:3000/tasks/delete/${taskId}`, {
+          taskCode: taskCode,
         });
       } catch (error) {
         console.error(error);
@@ -90,57 +92,57 @@ export default function SingleUseCase() {
       <div className="home">
         <Header />
         <div className="body">
-          <div className="single-use-case-container">
-            <div className="use-case-header">
-              <h1 className="use-case">{useCaseData.title}</h1>
+          <div className="single-task-container">
+            <div className="task-header">
+              <h1 className="task">{taskData.title}</h1>
               <button
-                className="use-case-button"
+                className="task-button"
                 onClick={() => {
-                  handleAddAsTeamsUseCase(useCaseData.title);
+                  handleAddAsTeamsTask(taskData.title);
                 }}
               >
-                Add as team's use-case
+                Add as team's task
               </button>
             </div>
-            <h5>Task ID: {useCaseData.id}</h5>
+            <h5>Task ID: {taskData.id}</h5>
             <p>
-              <b>Task Description:</b> {useCaseData.description}
+              <b>Task Description:</b> {taskData.description}
             </p>
             <p>
-              <b>Task Classification Level: {useCaseData.classificationLevel}</b>
+              <b>Task Classification Level: {taskData.classificationLevel}</b>
             </p>
             <p>
-              <b>POC's Name:</b> {useCaseData.pocName}
+              <b>POC's Name:</b> {taskData.pocName}
             </p>
             <p>
               <b>POC's Discord Name: </b>
-              {useCaseData.pocDiscordName}
+              {taskData.pocDiscordName}
             </p>
             <p>
-              <b>POC's Location:</b> {useCaseData.location}
+              <b>POC's Location:</b> {taskData.location}
             </p>
             <p>
               <b>Organization: </b>
-              {useCaseData.company}
+              {taskData.company}
             </p>
             <p>
               <b>Desired Deliverable: </b>
-              {useCaseData.desiredDeliverable}
+              {taskData.desiredDeliverable}
             </p>
             <p>
-              <b>Preferred Skillsets:</b> {useCaseData.desiredSkillset?.toString() ?? "none"}
+              <b>Preferred Skillsets:</b> {taskData.desiredSkillset?.toString() ?? "none"}
             </p>
             <p>
-              <b>Data Supplied: </b> {useCaseData.hasData ? "Yes" : "No"}
+              <b>Data Supplied: </b> {taskData.hasData ? "Yes" : "No"}
             </p>
           </div>
           <button className="edit-team-button">
-            <a onClick={() => navigate(`/edit-use-case/${useCaseId}`)}>Edit Task</a>
+            <a onClick={() => navigate(`/edit-task/${taskId}`)}>Edit Task</a>
           </button>
           <button
             className="edit-team-button"
             onClick={() => {
-              handleUseCaseDelete(useCaseId);
+              handleTaskDelete(taskId);
             }}
           >
             Delete Task

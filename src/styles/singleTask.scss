@@ -6,18 +6,18 @@
   justify-content: flex-start;
 }
 
-.use-case {
+.task {
   color: $tb_yellow;
   text-decoration: underline;
 }
 
-.use-case-header {
+.task-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.use-case-button {
+.task-button {
   background: transparent;
   color: $tb_text_primary;
   border: none;

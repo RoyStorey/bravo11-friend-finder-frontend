@@ -1,25 +1,25 @@
 import Header from "../components/header.jsx";
 import Footer from "../components/footer.jsx";
-import "../styles/addUseCase.css";
+import "../styles/addTask.css";
 import React, { useState } from "react";
 import axios from "axios";
 import Pitch from "../components/pitch-container.jsx";
 
-async function postNewUseCase(useCaseObject) {
+async function postNewTask(taskObject) {
   return axios
-    .post(`http://localhost:3000/addUseCase`, useCaseObject)
+    .post(`http://localhost:3000/tasks/`, taskObject)
     .then((response) => response.data)
     .catch((error) => console.error(error));
 }
 
-export default function AddUseCase() {
+export default function AddTask() {
   const [formData, setFormData] = useState({
-    title: "",
+    name: "",
     description: "",
     classificationLevel: "CUI",
-    desiredSkillsets: "",
+    preferredSkillsets: "",
     desiredDeliverable: "",
-    company: "",
+    organization: "",
     location: "",
     pocName: "",
     pocDiscordName: "",
@@ -34,9 +34,9 @@ export default function AddUseCase() {
 
   const handleSubmit = async () => {
     try {
-      const response = await postNewUseCase(formData);
+      const response = await postNewTask(formData);
       window.alert("Task successfully created!");
-      window.location.href = "/use-cases/";
+      window.location.href = "/tasks/";
       console.log(response); // Log the response or handle it as needed
     } catch (error) {
       console.error(error);

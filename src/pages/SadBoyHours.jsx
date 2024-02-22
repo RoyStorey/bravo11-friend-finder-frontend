@@ -9,43 +9,58 @@ import SadTasksTable from "../components/sadTasksTable.jsx";
 import SadTeamsTable from "../components/sadTeamsTable.jsx";
 
 export default function SadBoyHours() {
-  const [noTeamUseCaseData, setNoTeamUseCaseData] = useState([]);
-  const [noUseCaseTeamData, setNoUseCaseTeamData] = useState([]);
+  const [teamsData, setTeamsData] = useState([]);
+  const [tasksData, setTasksData] = useState([]);
 
   let isTeamsDataPopulated = false;
   let isTasksDataPopulated = false;
 
-  async function getNoTeamUseCaseData() {
+  async function getTeamsData() {
     return axios
-      .get(`http://localhost:3000/getNoTeamUseCase`)
+      .get(`http://localhost:3000/teams/`)
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }
-  async function getNoUseCaseTeamsData() {
+  async function getTasksData() {
     return axios
-      .get(`http://localhost:3000/getNoUseCaseTeam`)
+      .get(`http://localhost:3000/tasks/`)
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }
 
   useEffect(() => {
     try{
-    getNoTeamUseCaseData().then((data) => {
-      setNoTeamUseCaseData(data);
-      isTasksDataPopulated = true;
-    });
-    }catch{
-      console.log('No tasks that are unassigned.')
-    }
-  try{
-    getNoUseCaseTeamsData().then((data) => {
-      setNoUseCaseTeamData(data);
+    getTeamsData().then((data) => {
+      setTeamsData(data);
       isTeamsDataPopulated = true;
     });
     }catch{
-      console.log("No teams that need members.")
+      console.log('No teams data.')
+    }
+  try{
+    getTasksData().then((data) => {
+      setTasksData(data);
+      isTasksDataPopulated = true;
+    });
+    }catch{
+      console.log("No tasks data.")
     }
   }, []);
+
+  let teamsWithNoMembers = []
+  let tasksWithNoTeams = []
+
+  teamsData.forEach((team)=>{
+    if(team.members.length == 0){
+      teamsWithNoMembers.push(team)
+    }
+  })
+
+  tasksData.forEach((task)=>{
+    if(task.teams.length == 0){
+      tasksWithNoTeams.push(task)
+    }
+  })
 
   function SadTeamsTableConditional({data,isTeamsDataPopulated}){
     if(isTeamsDataPopulated){
@@ -70,11 +85,11 @@ export default function SadBoyHours() {
           <div className="tables-container">
             <div className="left-side">
               <h3>Tasks With No Teams</h3>
-              <SadTasksTableConditional isTasksDataPopulated={isTasksDataPopulated} data={noTeamUseCaseData} />
+              <SadTasksTableConditional isTasksDataPopulated={isTasksDataPopulated} data={tasksWithNoTeams} />
             </div>
             <div className="right-side">
               <h3>Teams That Need Members</h3>
-              <SadTeamsTableConditional isTeamsDataPopulated={isTeamsDataPopulated} data={noUseCaseTeamData} />
+              <SadTeamsTableConditional isTeamsDataPopulated={isTeamsDataPopulated} data={teamsWithNoMembers} />
             </div>
           </div>
         </div>

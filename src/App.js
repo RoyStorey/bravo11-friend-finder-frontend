@@ -1,28 +1,26 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
-import UseCases from "./pages/UseCases.jsx";
+import Tasks from "./pages/Tasks.jsx";
 import Teams from "./pages/Teams.jsx";
 import SingleTeam from "./pages/SingleTeam.jsx";
 import NoPage from "./pages/NoPage.jsx";
 import "./styles/app.css";
 import AddTeam from "./pages/AddTeam.jsx";
-import AddUseCase from "./pages/AddUseCase.jsx";
-import SingleUseCase from "./pages/SingleUseCase.jsx";
+import AddTask from "./pages/AddTask.jsx";
+import SingleTask from "./pages/SingleTask.jsx";
 import EditTeam from "./pages/EditTeam.jsx";
 import JoinTeam from "./pages/JoinTeam.jsx";
-import EditUseCase from "./pages/EditUseCase.jsx";
+import EditTask from "./pages/EditTask.jsx";
 import SadBoyHours from "./pages/SadBoyHours.jsx";
-
-function addMemberToTeam(memberData, teamId) {}
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route index element={<Teams />} />
-        <Route path="/use-cases" element={<UseCases />}></Route>
+        <Route path="/tasks" element={<Tasks />}></Route>
         <Route path="/add-team" element={<AddTeam />}></Route>
-        <Route path="/add-use-case" element={<AddUseCase />}></Route>
+        <Route path="/add-task" element={<AddTask />}></Route>
         <Route path="/sad-boy-hours" element={<SadBoyHours />}></Route>
         <Route
           path="/single-team/:teamId"
@@ -33,12 +31,12 @@ function App() {
           element={<EditTeam teamId=":teamId" />}
         />
         <Route
-          path="/edit-use-case/:useCaseId"
-          element={<EditUseCase useCaseId=":useCaseId" />}
+          path="/edit-task/:taskId"
+          element={<EditTask taskId=":taskId" />}
         />
         <Route
-          path="/single-use-case/:useCaseId"
-          element={<SingleUseCase useCaseId=":useCaseId" />}
+          path="/single-task/:taskId"
+          element={<SingleTask taskId=":taskId" />}
         />
         <Route
           path="/join-team/:teamId"
