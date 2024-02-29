@@ -8,7 +8,7 @@ import Pitch from "../components/pitch-container.jsx";
 import { useNavigate } from "react-router-dom";
 
 export default function SingleTask() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [taskData, setTaskData] = useState({
     title: "",
     description: "",
@@ -49,13 +49,13 @@ export default function SingleTask() {
     );
 
     if (yesNoCheck) {
-      let teamName = window.prompt("Please enter your team name:")
+      let teamName = window.prompt("Please enter your team name:");
       let otpCheck = window.prompt("Please enter your team-captain PIN:");
 
       return axios
         .post(`http://localhost:3000/tasks/${taskId}/join`, {
           captainCode: otpCheck,
-          team_name:teamName
+          team_name: teamName,
         })
         .then((response) => {
           if (response.status === 200) {
@@ -75,7 +75,7 @@ export default function SingleTask() {
 
   function handleTaskDelete(taskId) {
     if (window.confirm("Are you sure you would like to delete this team?")) {
-      let taskCode = window.prompt("Enter your TASK CODE to delete this task.")
+      let taskCode = window.prompt("Enter your TASK CODE to delete this task.");
       try {
         axios.post(`http://localhost:3000/tasks/delete/${taskId}`, {
           taskCode: taskCode,
@@ -88,7 +88,7 @@ export default function SingleTask() {
 
   return (
     <>
-      <Pitch />
+      {/* <Pitch /> */}
       <div className="home">
         <Header />
         <div className="body">
@@ -130,7 +130,8 @@ export default function SingleTask() {
               {taskData.desiredDeliverable}
             </p>
             <p>
-              <b>Preferred Skillsets:</b> {taskData.desiredSkillset?.toString() ?? "none"}
+              <b>Preferred Skillsets:</b>{" "}
+              {taskData.desiredSkillset?.toString() ?? "none"}
             </p>
             <p>
               <b>Data Supplied: </b> {taskData.hasData ? "Yes" : "No"}

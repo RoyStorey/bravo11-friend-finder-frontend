@@ -33,10 +33,10 @@ export default function AddTeam() {
     preferredWorkTime: "",
     classificationLevel: "CUI",
     preferredSkillsets: "",
-    captain:{
-      name:"",
-      discordName:"",
-      skillsets:"",
+    captain: {
+      name: "",
+      discordName: "",
+      skillsets: "",
     },
   });
 
@@ -101,7 +101,7 @@ export default function AddTeam() {
 
   return (
     <>
-      <Pitch />
+      {/* <Pitch /> */}
       <div className="home">
         <Header />
         <div className="body">

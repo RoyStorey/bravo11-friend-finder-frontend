@@ -33,10 +33,13 @@ export default function EditTask() {
   };
   async function updateTask(taskId, formData, otp) {
     try {
-      const response = await axios.post(`http://localhost:3000/tasks/${taskId}`, {
-        ...formData,
-        taskCode: otp,
-      });
+      const response = await axios.post(
+        `http://localhost:3000/tasks/${taskId}`,
+        {
+          ...formData,
+          taskCode: otp,
+        }
+      );
       return response.data;
     } catch (error) {
       console.error(error);
@@ -61,7 +64,7 @@ export default function EditTask() {
 
   return (
     <>
-      <Pitch />
+      {/* <Pitch /> */}
       <div className="home">
         <Header />
         <div className="body">

@@ -29,67 +29,73 @@ export default function SadBoyHours() {
   }
 
   useEffect(() => {
-    try{
-    getTeamsData().then((data) => {
-      setTeamsData(data);
-      isTeamsDataPopulated = true;
-    });
-    }catch{
-      console.log('No teams data.')
+    try {
+      getTeamsData().then((data) => {
+        setTeamsData(data);
+        isTeamsDataPopulated = true;
+      });
+    } catch {
+      console.log("No teams data.");
     }
-  try{
-    getTasksData().then((data) => {
-      setTasksData(data);
-      isTasksDataPopulated = true;
-    });
-    }catch{
-      console.log("No tasks data.")
+    try {
+      getTasksData().then((data) => {
+        setTasksData(data);
+        isTasksDataPopulated = true;
+      });
+    } catch {
+      console.log("No tasks data.");
     }
   }, []);
 
-  let teamsWithNoMembers = []
-  let tasksWithNoTeams = []
+  let teamsWithNoMembers = [];
+  let tasksWithNoTeams = [];
 
-  teamsData.forEach((team)=>{
-    if(team.members.length == 0){
-      teamsWithNoMembers.push(team)
+  teamsData.forEach((team) => {
+    if (team.members.length == 0) {
+      teamsWithNoMembers.push(team);
     }
-  })
+  });
 
-  tasksData.forEach((task)=>{
-    if(task.teams.length == 0){
-      tasksWithNoTeams.push(task)
+  tasksData.forEach((task) => {
+    if (task.teams.length == 0) {
+      tasksWithNoTeams.push(task);
     }
-  })
+  });
 
-  function SadTeamsTableConditional({data,isTeamsDataPopulated}){
-    if(isTeamsDataPopulated){
-      return <SadTeamsTable data={data} />
+  function SadTeamsTableConditional({ data, isTeamsDataPopulated }) {
+    if (isTeamsDataPopulated) {
+      return <SadTeamsTable data={data} />;
     }
-    return <h5>No team data found...</h5>
+    return <h5>No team data found...</h5>;
   }
 
-  function SadTasksTableConditional({data,isTasksDataPopulated}){
-    if(isTasksDataPopulated){
-      return <SadTasksTable data={data} />
+  function SadTasksTableConditional({ data, isTasksDataPopulated }) {
+    if (isTasksDataPopulated) {
+      return <SadTasksTable data={data} />;
     }
-    return <h5>No team data found...</h5>
+    return <h5>No team data found...</h5>;
   }
 
   return (
     <>
-      <Pitch />
+      {/* <Pitch /> */}
       <div className="home">
         <Header />
         <div className="body">
           <div className="tables-container">
             <div className="left-side">
               <h3>Tasks With No Teams</h3>
-              <SadTasksTableConditional isTasksDataPopulated={isTasksDataPopulated} data={tasksWithNoTeams} />
+              <SadTasksTableConditional
+                isTasksDataPopulated={isTasksDataPopulated}
+                data={tasksWithNoTeams}
+              />
             </div>
             <div className="right-side">
               <h3>Teams That Need Members</h3>
-              <SadTeamsTableConditional isTeamsDataPopulated={isTeamsDataPopulated} data={teamsWithNoMembers} />
+              <SadTeamsTableConditional
+                isTeamsDataPopulated={isTeamsDataPopulated}
+                data={teamsWithNoMembers}
+              />
             </div>
           </div>
         </div>

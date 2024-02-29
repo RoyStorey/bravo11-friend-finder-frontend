@@ -36,9 +36,9 @@ export default function JoinTeam() {
   async function addUserToTeam(data, teamid) {
     return axios
       .post(`http://localhost:3000/teams/${teamid}/join`, {
-        name:data.name,
-        discordName:data.discordName,
-        skillsets:data.skillsets
+        name: data.name,
+        discordName: data.discordName,
+        skillsets: data.skillsets,
       })
       .then((response) => response.data)
       .catch((error) => console.error(error));
@@ -57,7 +57,7 @@ export default function JoinTeam() {
 
   return (
     <>
-      <Pitch />
+      {/* <Pitch /> */}
       <div className="home">
         <Header />
         <div className="body">

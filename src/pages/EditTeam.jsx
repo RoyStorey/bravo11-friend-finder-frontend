@@ -63,7 +63,7 @@ export default function EditTeam() {
 
   return (
     <>
-      <Pitch />
+      {/* <Pitch /> */}
       <div className="home">
         <Header />
         <div className="body">

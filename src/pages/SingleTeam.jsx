@@ -27,9 +27,7 @@ export default function SingleTeam() {
 
   async function getTeam(teamId) {
     try {
-      const response = await axios.get(
-        `http://localhost:3000/teams/${teamId}`
-      );
+      const response = await axios.get(`http://localhost:3000/teams/${teamId}`);
       return response.data;
     } catch (error) {
       console.error(error);
@@ -113,7 +111,7 @@ export default function SingleTeam() {
             `http://localhost:3000/teams/${teamId}`
           );
           setTeamMembers(response.data.members);
-          console.log(response.data)
+          console.log(response.data);
         } catch (error) {
           console.error(error);
         }
@@ -127,11 +125,7 @@ export default function SingleTeam() {
         <h2>Team Members</h2>
         <ol>
           {teamMembers.map((member, index) => (
-
-
             <div className="team-member">
-
-
               <div className="team-data-column">
                 <li key={index}>
                   <b>{`${index}. Name: `}</b>
@@ -147,12 +141,15 @@ export default function SingleTeam() {
               <div className="team-data-column">
                 <b>Skills: </b>
                 <div className="skills-container">
-                  {member.skillsets?.split(',').map((skill,i)=>{
-                    return <div className="skill-pill" key={i}><p>{skill}</p></div>
+                  {member.skillsets?.split(",").map((skill, i) => {
+                    return (
+                      <div className="skill-pill" key={i}>
+                        <p>{skill}</p>
+                      </div>
+                    );
                   })}
                 </div>
               </div>
-
 
               <button
                 onClick={() => {
@@ -171,7 +168,7 @@ export default function SingleTeam() {
 
   return (
     <>
-      <Pitch />
+      {/* <Pitch /> */}
       <div className="home">
         <Header />
         <div className="body">
@@ -207,10 +204,16 @@ export default function SingleTeam() {
             </p>
             <TeamMembersList teamId={teamId} />
           </div>
-          <button onClick={() => navigate(`/edit-team/${teamId}`)} className="edit-team-button">
+          <button
+            onClick={() => navigate(`/edit-team/${teamId}`)}
+            className="edit-team-button"
+          >
             Edit Team
           </button>
-          <button onClick={() => navigate(`/join-team/${teamId}`)} className="edit-team-button">
+          <button
+            onClick={() => navigate(`/join-team/${teamId}`)}
+            className="edit-team-button"
+          >
             Join Team
           </button>
           <button
@@ -223,7 +226,7 @@ export default function SingleTeam() {
           </button>
         </div>
         <Footer />
-      </div >
+      </div>
     </>
   );
 }

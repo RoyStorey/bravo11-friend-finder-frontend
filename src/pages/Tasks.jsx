@@ -35,30 +35,33 @@ export default function Tasks() {
   }
 
   useEffect(() => {
-    try{
-    getTasks().then((data) => {
-      setTasksData(data);
-      console.log(data, "test");
-    });
-  }catch{
-    console.log('No data found...')
-  }
+    try {
+      getTasks().then((data) => {
+        setTasksData(data);
+        console.log(data, "test");
+      });
+    } catch {
+      console.log("No data found...");
+    }
   }, []);
 
-  function TasksTableConditional({data,isDataPopulated}){
-    if(isDataPopulated){
-      return <TasksTable data={data} />
+  function TasksTableConditional({ data, isDataPopulated }) {
+    if (isDataPopulated) {
+      return <TasksTable data={data} />;
     }
-    return <h5>No task data found...</h5>
+    return <h5>No task data found...</h5>;
   }
 
   return (
     <>
-      <Pitch />
+      {/* <Pitch /> */}
       <div className="home">
         <Header />
         <div className="body">
-          <TasksTableConditional data={tasksData} isDataPopulated={isDataPopulated} />
+          <TasksTableConditional
+            data={tasksData}
+            isDataPopulated={isDataPopulated}
+          />
         </div>
         <Footer />
       </div>
