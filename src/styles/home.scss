@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 .home {
   min-height: 100dvh;
@@ -8,9 +8,6 @@
   gap: 1rem;
   padding-bottom: 8vh;
   box-sizing: border-box;
-  width: 70%;
-  position: absolute;
-  right: 0px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -20,4 +17,10 @@
   justify-content: right;
   height: 100%;
   padding-inline: 4rem;
+}
+
+@media (max-width: $tablet-breakpoint) {
+  .body {
+    padding-inline: 2rem;
+  }
 }

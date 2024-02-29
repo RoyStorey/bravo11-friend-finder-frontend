@@ -1,4 +1,4 @@
-@import 'variables';
+@import "variables";
 
 .header-container {
   display: flex;
@@ -67,6 +67,10 @@ h1 {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  @media screen and (max-width: $tablet-breakpoint) {
+    width: 100%;
+  }
 }
 
 .hyperlink-icon {
@@ -79,5 +83,37 @@ a {
 
   &:hover {
     color: $tb_yellow;
+  }
+}
+
+@media screen and (max-width: $tablet-breakpoint) {
+  title {
+    padding-inline: 2rem;
+  }
+  .modal {
+    display: none;
+  }
+  .modal.active {
+    display: block;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: $tb_background_secondary;
+    .modal-icon {
+      display: flex;
+      justify-content: flex-end;
+      padding: 2rem;
+    }
+  }
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    font-size: 2rem;
+  }
+  .hyperlinks {
+    display: none;
   }
 }

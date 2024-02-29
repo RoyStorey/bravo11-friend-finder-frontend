@@ -1,5 +1,6 @@
-@import 'variables';
-$font-family_1: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+@import "variables";
+$font-family_1: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
 body {
   margin: 0px;
@@ -11,8 +12,6 @@ body {
 a {
   cursor: pointer;
 }
-
-
 
 button {
   background-color: $tb_yellow;
@@ -28,16 +27,26 @@ button {
     cursor: pointer;
   }
 }
-.skill-pill{
-  background-color:$tb_yellow;
-  border-radius:6px;
-  padding:3px 12px;
-  height:min-content;
-  color:$tb_text_secondary;
+.skill-pill {
+  background-color: $tb_yellow;
+  border-radius: 6px;
+  padding: 3px 12px;
+  height: min-content;
+  color: $tb_text_secondary;
   // flex:0 0 21%;
 
-  p{
-    color:$tb_text_secondary;
-    margin:0px;
+  p {
+    color: $tb_text_secondary;
+    margin: 0px;
+  }
+}
+.desktop-only {
+  @media screen and (max-width: $tablet-breakpoint) {
+    display: none;
+  }
+}
+.mobile-only {
+  @media screen and (min-width: $tablet-breakpoint) {
+    display: none;
   }
 }

@@ -9,6 +9,11 @@
   display: flex;
   flex-direction: row;
 }
+@media screen and (max-width: 768px) {
+  .form-container {
+    flex-direction: column-reverse;
+  }
+}
 
 input {
   margin-bottom: 1rem;
@@ -16,11 +21,18 @@ input {
 
 .form-header {
   color: hsl(32, 47%, 45%);
+  display: flex;
+  align-self: center;
 }
 
 .left-side-of-form {
   display: flex;
   flex: 1;
+}
+@media screen and (max-width: 768px) {
+  .left-side-of-form {
+    width: 100% !important;
+  }
 }
 
 .right-side-of-form {
