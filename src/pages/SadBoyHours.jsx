@@ -50,13 +50,13 @@ export default function SadBoyHours() {
   let teamsWithNoMembers = [];
   let tasksWithNoTeams = [];
 
-  teamsData.forEach((team) => {
+  teamsData?.forEach((team) => {
     if (team.members.length == 0) {
       teamsWithNoMembers.push(team);
     }
   });
 
-  tasksData.forEach((task) => {
+  tasksData?.forEach((task) => {
     if (task.teams.length == 0) {
       tasksWithNoTeams.push(task);
     }
