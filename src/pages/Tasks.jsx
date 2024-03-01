@@ -6,26 +6,26 @@ import "../styles/home.css";
 import axios from "axios";
 import Pitch from "../components/pitch-container.jsx";
 
-// const data = [
-//   {
-//     id: 1,
-//     title: "Avionics Data Cleaning for INDOPACOM",
-//     description:
-//       "The Avionics Data Cleaning task for INDOPACOM involves the process of collecting, processing, and refining avionics data from various aircraft and sources within the Indo-Pacific Command (INDOPACOM) region. This critical task ensures that the avionics data is accurate, reliable, and ready for analysis and decision-making.",
-//     classificationLevel: "Secret",
-//     desiredSkillsets: ["ui/ux developer", "data scientist"],
-//     desiredDeliverable: "Application that cleans data",
-//     company: "INDOPACOM",
-//     location: "E2",
-//     pocName: "john smite",
-//     pocDiscordName: "smiteyou",
-//     hasData: true,
-//   },
-// ];
+const fug = [
+  {
+    id: 1,
+    title: "Avionics Data Cleaning for INDOPACOM",
+    description:
+      "The Avionics Data Cleaning task for INDOPACOM involves the process of collecting, processing, and refining avionics data from various aircraft and sources within the Indo-Pacific Command (INDOPACOM) region. This critical task ensures that the avionics data is accurate, reliable, and ready for analysis and decision-making.",
+    classificationLevel: "Secret",
+    desiredSkillsets: ["ui/ux developer", "data scientist"],
+    desiredDeliverable: "Application that cleans data",
+    company: "INDOPACOM",
+    location: "E2",
+    pocName: "john smite",
+    pocDiscordName: "smiteyou",
+    hasData: true,
+  },
+];
 
 export default function Tasks() {
   const [tasksData, setTasksData] = useState([]);
-  let isDataPopulated = false;
+  let isDataPopulated = true;
 
   async function getTasks() {
     return axios
@@ -59,7 +59,7 @@ export default function Tasks() {
         <Header />
         <div className="body">
           <TasksTableConditional
-            data={tasksData}
+            data={fug}
             isDataPopulated={isDataPopulated}
           />
         </div>

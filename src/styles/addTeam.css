@@ -12,6 +12,7 @@
 @media screen and (max-width: 768px) {
   .form-container {
     flex-direction: column-reverse;
+    gap: 2rem;
   }
 }
 

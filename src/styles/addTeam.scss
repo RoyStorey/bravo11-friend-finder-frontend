@@ -10,8 +10,10 @@
   width: 100%;
   display: flex;
   flex-direction: row;
+
   @media screen and (max-width: $tablet-breakpoint) {
     flex-direction: column-reverse;
+    gap: 2rem;
   }
 }
 
@@ -28,6 +30,7 @@ input {
 .left-side-of-form {
   display: flex;
   flex: 1;
+
   @media screen and (max-width: $tablet-breakpoint) {
     width: 100% !important;
   }

@@ -15,7 +15,7 @@ import {
 
 function Modal() {
   return (
-    <div className="modal" id="modal">
+    <div className="modal mobile-only" id="modal">
       <div className="modal-header">
         <FontAwesomeIcon
           icon={faBars}
@@ -28,6 +28,7 @@ function Modal() {
         <a href="/tasks">Tasks</a>
         <a href="/add-team/">Add Team</a>
         <a href="/add-task/">Add Task</a>
+        <a href="/sad-boy-hours/">Help, I'm sad.</a>
       </div>
     </div>
   );
@@ -51,7 +52,7 @@ export default function Header() {
           <FontAwesomeIcon
             icon={faBars}
             onClick={() => toggleModal()}
-            className="header-icon mobile-only"
+            className=" modal-icon mobile-only"
           />
           <h1 onClick={() => navigate(`/`)} className="desktop-only">
             Team Builder

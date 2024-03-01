@@ -99,6 +99,7 @@ a:hover {
     display: flex;
     justify-content: flex-end;
     padding: 2rem;
+    color: rgba(0, 0, 0, 0.753);
   }
   .modal-content {
     display: flex;
