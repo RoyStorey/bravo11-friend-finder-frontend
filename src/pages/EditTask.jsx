@@ -13,7 +13,7 @@ export default function EditTask() {
   const [oldFormData, setOldFormData] = useState({});
   async function getTask(taskId) {
     return axios
-      .get(`http://localhost:3000/tasks/${taskId}`)
+      .get(`http://${process.env.REACT_APP_SERVER}/tasks/${taskId}`)
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }
@@ -34,7 +34,7 @@ export default function EditTask() {
   async function updateTask(taskId, formData, otp) {
     try {
       const response = await axios.post(
-        `http://localhost:3000/tasks/${taskId}`,
+        `http://${process.env.REACT_APP_SERVER}/tasks/${taskId}`,
         {
           ...formData,
           taskCode: otp,

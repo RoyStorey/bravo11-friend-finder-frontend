@@ -26,7 +26,7 @@ export default function SingleTask() {
 
   async function getTask(taskId) {
     return axios
-      .get(`http://localhost:3000/tasks/${taskId}`)
+      .get(`http://${process.env.REACT_APP_SERVER}/tasks/${taskId}`)
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }
@@ -53,7 +53,7 @@ export default function SingleTask() {
       let otpCheck = window.prompt("Please enter your team-captain PIN:");
 
       return axios
-        .post(`http://localhost:3000/tasks/${taskId}/join`, {
+        .post(`http://${process.env.REACT_APP_SERVER}/tasks/${taskId}/join`, {
           captainCode: otpCheck,
           team_name: teamName,
         })
@@ -77,9 +77,12 @@ export default function SingleTask() {
     if (window.confirm("Are you sure you would like to delete this team?")) {
       let taskCode = window.prompt("Enter your TASK CODE to delete this task.");
       try {
-        axios.post(`http://localhost:3000/tasks/delete/${taskId}`, {
-          taskCode: taskCode,
-        });
+        axios.post(
+          `http://${process.env.REACT_APP_SERVER}/tasks/delete/${taskId}`,
+          {
+            taskCode: taskCode,
+          }
+        );
       } catch (error) {
         console.error(error);
       }

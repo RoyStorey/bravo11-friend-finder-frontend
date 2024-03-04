@@ -29,7 +29,7 @@ export default function Tasks() {
 
   async function getTasks() {
     return axios
-      .get(`http://localhost:3000/tasks`)
+      .get(`http://${process.env.REACT_APP_SERVER}/tasks`)
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }
@@ -58,10 +58,7 @@ export default function Tasks() {
       <div className="home">
         <Header />
         <div className="body">
-          <TasksTableConditional
-            data={fug}
-            isDataPopulated={isDataPopulated}
-          />
+          <TasksTableConditional data={fug} isDataPopulated={isDataPopulated} />
         </div>
         <Footer />
       </div>

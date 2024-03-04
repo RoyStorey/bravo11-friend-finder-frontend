@@ -13,7 +13,7 @@ export default function EditTeam() {
   const [oldFormData, setOldFormData] = useState({});
   async function getTeam(teamId) {
     return axios
-      .get(`http://localhost:3000/teams/${teamId}`)
+      .get(`http://${process.env.REACT_APP_SERVER}/teams/${teamId}`)
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }
@@ -33,7 +33,7 @@ export default function EditTeam() {
   };
   async function updateTeam(teamId, formData, otp) {
     return axios
-      .patch(`http://localhost:3000/teams/${teamId}`, {
+      .patch(`http://${process.env.REACT_APP_SERVER}/teams/${teamId}`, {
         ...formData,
         captainCode: otp,
       })

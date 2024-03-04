@@ -17,13 +17,13 @@ export default function SadBoyHours() {
 
   async function getTeamsData() {
     return axios
-      .get(`http://localhost:3000/teams/`)
+      .get(`http://${process.env.REACT_APP_SERVER}/teams/`)
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }
   async function getTasksData() {
     return axios
-      .get(`http://localhost:3000/tasks/`)
+      .get(`http://${process.env.REACT_APP_SERVER}/tasks/`)
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }

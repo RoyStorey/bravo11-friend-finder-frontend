@@ -7,7 +7,7 @@ import Pitch from "../components/pitch-container.jsx";
 
 async function postNewTeam(teamObject) {
   return axios
-    .post(`http://localhost:3000/teams/`, teamObject)
+    .post(`http://${process.env.REACT_APP_SERVER}/teams/`, teamObject)
     .then((response) => response.data)
     .catch((error) => console.error(error));
 }

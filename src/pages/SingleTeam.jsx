@@ -27,7 +27,9 @@ export default function SingleTeam() {
 
   async function getTeam(teamId) {
     try {
-      const response = await axios.get(`http://localhost:3000/teams/${teamId}`);
+      const response = await axios.get(
+        `http://${process.env.REACT_APP_SERVER}/teams/${teamId}`
+      );
       return response.data;
     } catch (error) {
       console.error(error);
@@ -53,7 +55,7 @@ export default function SingleTeam() {
 
     if (window.confirm("Are you sure you would like to delete this team?")) {
       axios
-        .post(`http://localhost:3000/teams/delete/${teamId}`, {
+        .post(`http://${process.env.REACT_APP_SERVER}/teams/delete/${teamId}`, {
           captainCode: otpCheck,
         })
         .then((response) => {
@@ -81,7 +83,7 @@ export default function SingleTeam() {
     if (window.confirm("Are you sure you would like to delete this user?")) {
       try {
         axios
-          .post(`http://localhost:3000/members/${memberId}`, {
+          .post(`http://${process.env.REACT_APP_SERVER}/members/${memberId}`, {
             captainCode: otpCheck,
           })
           .then((response) => {
@@ -108,7 +110,7 @@ export default function SingleTeam() {
       async function fetchTeamMembers() {
         try {
           const response = await axios.get(
-            `http://localhost:3000/teams/${teamId}`
+            `http://${process.env.REACT_APP_SERVER}/teams/${teamId}`
           );
           setTeamMembers(response.data.members);
           console.log(response.data);

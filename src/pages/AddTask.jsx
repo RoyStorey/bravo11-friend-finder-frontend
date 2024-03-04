@@ -7,7 +7,7 @@ import Pitch from "../components/pitch-container.jsx";
 
 async function postNewTask(taskObject) {
   return axios
-    .post(`http://localhost:3000/tasks/`, taskObject)
+    .post(`http://${process.env.REACT_APP_SERVER}:3000/tasks/`, taskObject)
     .then((response) => response.data)
     .catch((error) => console.error(error));
 }

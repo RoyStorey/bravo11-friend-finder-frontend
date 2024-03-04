@@ -12,7 +12,7 @@ export default function Teams() {
 
   async function getTeams() {
     return axios
-      .get(`http://localhost:3000/teams`)
+      .get(`http://${process.env.REACT_APP_SERVER}/teams`)
       .then((response) => response.data)
       .catch((error) => console.error(error));
   }
